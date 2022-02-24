@@ -12,16 +12,16 @@ import { MatTableModule } from '@angular/material/table';
 
 import {MatInputModule} from '@angular/material/input';
 
-const userRoutes: Routes = [
-  {
-    path: 'byPatientId',
-    component: ByPatientIdComponent
-  },
-  {
-    path: '**',
-    component: ByPatientIdComponent
-  },
-]
+// const userRoutes: Routes = [
+//   {
+//     path: 'byPatientId',
+//     component: ByPatientIdComponent
+//   },
+//   {
+//     path: '**',
+//     component: ByPatientIdComponent
+//   },
+// ]
 
 
 
@@ -31,7 +31,7 @@ const userRoutes: Routes = [
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(userRoutes),
+    // RouterModule.forChild(userRoutes),
     MatFormFieldModule,
     MatTableModule,
     FormsModule,

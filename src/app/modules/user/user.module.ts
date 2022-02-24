@@ -14,7 +14,7 @@ import { MatInputModule } from '@angular/material/input';
 
 
 
-// const routes: Routes = [
+// const user_routes: Routes = [
 //   {
 //     path: 'login',
 //     loadChildren: () => import('M:/angular/microscopic-picture/src/app/modules/user/user.module').then(m => m.UserModule)
@@ -40,7 +40,8 @@ import { MatInputModule } from '@angular/material/input';
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
-    MatRippleModule
+    MatRippleModule,
+    //RouterModule.forChild(routs)
   ],
   exports: [
     LogInComponent

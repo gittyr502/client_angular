@@ -9,22 +9,16 @@ import { UserDTO } from '../models/userDTO.models';
   providedIn: 'root'
 })
 export class ExamService {
+  baseURL='/api/Exam/';
 
-  constructor() { }
+  constructor(private _http: HttpClient) { } 
+  getExamById(id:number): Observable<Examination[]>{
+      return this._http.get<any>('http://localhost:21757/api/Exam/{id}'+id);
+  }
 }
 
 
+ 
 
 
-export class LoginService {
-  
-  baseURL='/api/User/';
-  constructor(private _http: HttpClient){
-
-  }
-  getUser(newUser:UserDTO): Observable<User>{
-      return this._http.post<User>('http://localhost:21757/api/User/login',newUser);
-  }
-
-}
 

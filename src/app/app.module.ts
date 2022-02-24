@@ -22,6 +22,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { LoginService } from './services/login.service';
 import { ExamModule } from './modules/exam/exam.module';
 import { RouterModule, RouterOutlet, Routes } from '@angular/router';
+import { ByPatientIdComponent } from './modules/exam/by-patient-id/by-patient-id.component';
 
 // import {Ng}
 
@@ -32,14 +33,14 @@ const routes: Routes = [
     path: 'user',
     component:LogInComponent
   },
-  {
-    path: '**',
-    loadChildren: () => import('./modules/user/user.module').then(m => m.UserModule)
-  },
-  
-  {path:'patient',
-  loadChildren: () => import('./modules/exam/exam.module').then(m => m.ExamModule)
-}
+  // {
+  //   path: '**',
+  //   loadChildren: () => import('./modules/user/user.module').then(m => m.UserModule)
+  // },
+  {path:'patient',component:ByPatientIdComponent},
+  {path:'patient/:id',component:ByPatientIdComponent}
+  //loadChildren: () => import('./modules/exam/exam.module').then(m => m.ExamModule)
+
 ];
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ const routes: Routes = [
     MatStepperModule,
     MatInputModule,
     AppRoutingModule,
+    ExamModule,
     RouterModule.forRoot(routes)
   ],
   
