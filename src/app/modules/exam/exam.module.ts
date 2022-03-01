@@ -12,6 +12,7 @@ import { MatTableModule } from '@angular/material/table';
 
 import {MatInputModule} from '@angular/material/input';
 import { ByDoctorIdComponent } from './by-doctor-id/by-doctor-id.component';
+import { ByLabIdComponent } from './by-lab-id/by-lab-id.component';
 
 // const userRoutes: Routes = [
 //   {
@@ -29,7 +30,8 @@ import { ByDoctorIdComponent } from './by-doctor-id/by-doctor-id.component';
 @NgModule({
   declarations: [
     ByPatientIdComponent,
-    ByDoctorIdComponent
+    ByDoctorIdComponent,
+    ByLabIdComponent
   ],
   imports: [
     CommonModule,

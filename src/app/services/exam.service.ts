@@ -18,6 +18,11 @@ export class ExamService {
   getExamByDoctorId(id:number){
     return this._http.get<any>('http://localhost:21757//api/Exam/getByDoctorId/{DoctorId}'+id);
   }
+
+  getExamByTestTubeId(id:number):Observable<Examination[]>{
+    return this._http.get<any>('http://localhost:21757/api/Exam/{id}'+id);
+  }
+
   }
 
 

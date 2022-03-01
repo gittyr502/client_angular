@@ -21,7 +21,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatDialogModule} from '@angular/material/dialog';
 import { LoginService } from './services/login.service';
 import { ExamModule } from './modules/exam/exam.module';
-import { RouterModule, RouterOutlet, Routes } from '@angular/router';
+import { Router, RouterModule, RouterOutlet, Routes } from '@angular/router';
 import { ByPatientIdComponent } from './modules/exam/by-patient-id/by-patient-id.component';
 import { ByDoctorIdComponent } from './modules/exam/by-doctor-id/by-doctor-id.component';
 

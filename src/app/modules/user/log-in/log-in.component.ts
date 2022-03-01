@@ -36,6 +36,7 @@ export class LogInComponent implements OnInit {
         
           this.router.navigate(['/patient',{id:data.id}])
         }
+        
       }
       else { console.log("no such user"); }
     });
