@@ -12,11 +12,13 @@ import { ExamService } from 'src/app/services/exam.service';
 })
 export class ByDoctorIdComponent implements OnInit {
 
+ 
   constructor(private examService:ExamService,private _acr: ActivatedRoute, ) { }
-        displayedColumns: string[] = ['index','examination date', 'patient id','btn-edit','labyrinth_comments','labyrinth_diagnosis','doctor_comments', 'result'];
+        displayedColumns: string[] = ['index','examination date', 'patient id','labyrinth_comments','labyrinth_diagnosis','doctor_comments', 'result','send message to patient'];
         idPatient!:number;
         examinations!:Examination[];
         dataSource!:any;
+        
   @ViewChild(MatSort) sort!: MatSort;
 
 ngOnInit(): void {
