@@ -24,6 +24,7 @@ import { ExamModule } from './modules/exam/exam.module';
 import { Router, RouterModule, RouterOutlet, Routes } from '@angular/router';
 import { ByPatientIdComponent } from './modules/exam/by-patient-id/by-patient-id.component';
 import { ByDoctorIdComponent } from './modules/exam/by-doctor-id/by-doctor-id.component';
+import { ByLabIdComponent } from './modules/exam/by-lab-id/by-lab-id.component';
 
 // import {Ng}
 
@@ -40,7 +41,9 @@ const routes: Routes = [
   // },
   {path:'patient',component:ByPatientIdComponent},
   {path:'patient/:id',component:ByPatientIdComponent},
-  {path:'doctor/:id',component:ByDoctorIdComponent}
+  {path:'doctor/:id',component:ByDoctorIdComponent},
+  {path:'lab',component:ByLabIdComponent},
+  // {path:'manager/:id',component:ByDoctorIdComponent}
   //loadChildren: () => import('./modules/exam/exam.module').then(m => m.ExamModule)
 
 ];

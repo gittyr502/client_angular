@@ -33,10 +33,18 @@ export class LogInComponent implements OnInit {
       if (data) {
         console.log("hello" + " " + data.firstName + " " + data.lastName);
         if (data.userKindId == 4) {
-        
-          this.router.navigate(['/patient',{id:data.id}]);
+          this.router.navigate(['/patient', { id: data.id }]);
         }
-        
+        if (data.userKindId == 1) {
+          this.router.navigate(['/manager', { id: data.id }]);
+        }
+        if (data.userKindId == 2) {
+          this.router.navigate(['/doctor', { id: data.id }]);
+        }
+        if (data.userKindId == 4) {
+          this.router.navigate(['/lab', { id: data.id }]);
+        }
+
       }
       else { console.log("no such user"); }
     });
