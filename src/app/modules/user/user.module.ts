@@ -35,7 +35,6 @@ import { MatIconModule } from '@angular/material/icon';
   declarations: [LogInComponent],
   imports: [
     CommonModule,
-    RouterModule,
     ReactiveFormsModule,
     MatNativeDateModule,
     MatButtonModule,
@@ -43,7 +42,7 @@ import { MatIconModule } from '@angular/material/icon';
     MatInputModule,
     MatIconModule,
     MatRippleModule,
-    //RouterModule.forChild(routs)
+    RouterModule
   ],
   exports: [
     LogInComponent

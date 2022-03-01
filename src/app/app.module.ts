@@ -78,6 +78,7 @@ const routes: Routes = [
     CUSTOM_ELEMENTS_SCHEMA
   ],
   bootstrap: [AppComponent],
+  exports:[RouterModule]
 
 })
 export class AppModule { }

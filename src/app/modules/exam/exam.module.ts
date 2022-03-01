@@ -37,8 +37,7 @@ import { ByDoctorIdComponent } from './by-doctor-id/by-doctor-id.component';
     MatFormFieldModule,
     MatTableModule,
     FormsModule,
-
-    BrowserAnimationsModule,
+  BrowserAnimationsModule,
     BrowserModule,
     HttpClientModule,
     MatNativeDateModule,

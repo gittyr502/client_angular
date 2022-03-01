@@ -39,25 +39,28 @@ ngOnInit(): void {
     this._acr.paramMap.subscribe(params => {
       var idParam = params.get("id");
       if (idParam!= undefined&&idParam!=null)
-        this. idUser =(Number)(idParam);
+        this.idUser =(Number)(idParam);
       
     })
     this.patientService.getPatientsByUserId(this.idUser).subscribe(
       data=>{
       if (data)
-      this.patientsOfUser=data;
+      {this.patientsOfUser=data;
       this.selectedValue=this.patientsOfUser[0];
-     }
-
-    )
-    
-    
-    this.examService.getExamById(this.idPatient).subscribe(data => {
+      this.idPatient=this.selectedValue.patientId; 
+      this.examService.getExamById(this.idPatient).subscribe(data => {
       if (data) {
       this.examinations=data;
        this.dataSource = new MatTableDataSource(this.examinations);
       }
     });
+      }
+     }
+
+    )
+    
+    
+   
     
   }
   ngAfterViewInit() {

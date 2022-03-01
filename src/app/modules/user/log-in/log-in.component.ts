@@ -34,7 +34,7 @@ export class LogInComponent implements OnInit {
         console.log("hello" + " " + data.firstName + " " + data.lastName);
         if (data.userKindId == 4) {
         
-          this.router.navigate(['/patient',{id:data.id}])
+          this.router.navigate(['/patient',{id:data.id}]);
         }
       }
       else { console.log("no such user"); }

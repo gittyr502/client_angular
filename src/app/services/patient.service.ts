@@ -13,6 +13,7 @@ export class PatientService {
   }
   getPatientsByUserId(userId:number):Observable<patientDTO[]>
   {
-    return this._http.get<any>('http://localhost:21757/api/Patient/{userId}'+userId);
+    
+    return this._http.get<any>('http://localhost:21757/api/Patient/'+ userId);
   }
 }

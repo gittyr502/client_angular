@@ -13,10 +13,10 @@ export class ExamService {
 
   constructor(private _http: HttpClient) { } 
   getExamById(id:number): Observable<Examination[]>{
-      return this._http.get<any>('http://localhost:21757/api/Exam/{id}'+id);
+      return this._http.get<any>('http://localhost:21757/api/Exam/GetByPatientIdChecked/'+id);
   }
   getExamByDoctorId(id:number){
-    return this._http.get<any>('http://localhost:21757//api/Exam/getByDoctorId/{DoctorId}'+id);
+    return this._http.get<any>('http://localhost:21757/GetByPatientIdChecked/'+id);
   }
   }
 
