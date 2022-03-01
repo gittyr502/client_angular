@@ -23,6 +23,7 @@ import { LoginService } from './services/login.service';
 import { ExamModule } from './modules/exam/exam.module';
 import { RouterModule, RouterOutlet, Routes } from '@angular/router';
 import { ByPatientIdComponent } from './modules/exam/by-patient-id/by-patient-id.component';
+import { ByDoctorIdComponent } from './modules/exam/by-doctor-id/by-doctor-id.component';
 
 // import {Ng}
 
@@ -38,7 +39,8 @@ const routes: Routes = [
   //   loadChildren: () => import('./modules/user/user.module').then(m => m.UserModule)
   // },
   {path:'patient',component:ByPatientIdComponent},
-  {path:'patient/:id',component:ByPatientIdComponent}
+  {path:'patient/:id',component:ByPatientIdComponent},
+  {path:'doctor/:id',component:ByDoctorIdComponent}
   //loadChildren: () => import('./modules/exam/exam.module').then(m => m.ExamModule)
 
 ];

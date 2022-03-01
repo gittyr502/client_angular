@@ -1,20 +1,6 @@
 export class examDto{
-    id:string | undefined;
-    password:string|undefined;
     
-    constructor()
-    {
-        this.id="";
-        this.password="";
-    }
-}
-
-
-
-
-
-
-id:number;
+    id:number;
   patientId:number;
   examinationDate: Date;
   doctorId: number;
@@ -32,6 +18,15 @@ id:number;
       this.computerDiagnosis=computerDiagnosis;
       this.doctorDiagnosis=doctorDiagnosis;
       this.prescriptionName=prescriptionName;
+    
+}
+
+
+
+
+
+
+
       
       
   }

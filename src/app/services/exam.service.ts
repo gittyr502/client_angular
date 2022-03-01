@@ -15,7 +15,11 @@ export class ExamService {
   getExamById(id:number): Observable<Examination[]>{
       return this._http.get<any>('http://localhost:21757/api/Exam/{id}'+id);
   }
-}
+  getExamByDoctorId(id:number){
+    return this._http.get<any>('http://localhost:21757//api/Exam/getByDoctorId/{DoctorId}'+id);
+  }
+  }
+
 
 
  

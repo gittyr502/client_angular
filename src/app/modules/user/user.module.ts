@@ -11,6 +11,7 @@ import { MatNativeDateModule, MatRippleModule } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
 
 
 
@@ -40,6 +41,7 @@ import { MatInputModule } from '@angular/material/input';
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
+    MatIconModule,
     MatRippleModule,
     //RouterModule.forChild(routs)
   ],

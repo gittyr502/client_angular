@@ -11,6 +11,7 @@ import { MatFormFieldModule, MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/mat
 import { MatTableModule } from '@angular/material/table';
 
 import {MatInputModule} from '@angular/material/input';
+import { ByDoctorIdComponent } from './by-doctor-id/by-doctor-id.component';
 
 // const userRoutes: Routes = [
 //   {
@@ -27,7 +28,8 @@ import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
-    ByPatientIdComponent
+    ByPatientIdComponent,
+    ByDoctorIdComponent
   ],
   imports: [
     CommonModule,

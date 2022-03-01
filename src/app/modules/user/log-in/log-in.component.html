@@ -14,8 +14,21 @@
 
     <!-- Login Form -->
     <form [formGroup]="loginForm">
-      <input type="text" id="login" class="fadeIn second" name="login" placeholder="user name" name="userName" formControlName="email"#id >
-      <input type="text" id="password" class="fadeIn third" name="login" placeholder="password" formControlName="password"#password>
+      <input type="text" id="login" class="fadeIn second" name="login" placeholder="user name" name="userName"
+        formControlName="email" #id>
+
+      <!-- <input type="text" id="password" class="fadeIn third" name="login" > -->
+
+
+      <!-- <mat-label>Enter your password</mat-label> -->
+      <input id="password" class="fadeIn third" name="login" placeholder="password" formControlName="password" #password
+        matInput [type]="hide ? 'password' : 'text'">
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    
+
       <input type="submit" class="fadeIn fourth" value="Log In" (click)="LogIn(id.value,password.value)">
     </form>
 

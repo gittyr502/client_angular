@@ -14,6 +14,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./log-in.component.css']
 })
 export class LogInComponent implements OnInit {
+  hide = true;
   loginForm: FormGroup = new FormGroup({
     email: new FormControl(),
     password: new FormControl(),
