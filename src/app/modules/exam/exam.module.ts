@@ -10,20 +10,22 @@ import { RouterModule, Routes } from '@angular/router';
 import { MatFormFieldModule, MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { MatTableModule } from '@angular/material/table';
 
+import {  MatTabsModule} from '@angular/material/tabs';
 import {MatInputModule} from '@angular/material/input';
 import { ByDoctorIdComponent } from './by-doctor-id/by-doctor-id.component';
 import { ByLabIdComponent } from './by-lab-id/by-lab-id.component';
 
-// const userRoutes: Routes = [
-//   {
-//     path: 'byPatientId',
-//     component: ByPatientIdComponent
-//   },
-//   {
-//     path: '**',
-//     component: ByPatientIdComponent
-//   },
-// ]
+
+
+
+const routes: Routes = [
+  {
+    path: "", pathMatch:"full", redirectTo:"user"
+  },
+  {path:'exams',component:ByDoctorIdComponent},
+  // {path:'add user',component:AddUser},
+  // {path:'discussion groups',component:}
+];
 
 
 
@@ -44,7 +46,8 @@ import { ByLabIdComponent } from './by-lab-id/by-lab-id.component';
     HttpClientModule,
     MatNativeDateModule,
     ReactiveFormsModule,
-    MatInputModule
+    MatInputModule,
+    MatTabsModule
   ],
   exports: [
     ByPatientIdComponent

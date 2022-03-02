@@ -1,3 +1,11 @@
+<nav mat-tab-nav-bar>
+  <a mat-tab-link *ngFor="let link of links"
+     (click)="activeLink = link;navigator()"    
+     [active]="activeLink == link"> {{link}} </a>
+</nav>
+
+
+
 <mat-form-field appearance="standard">
     <mat-label>Filter</mat-label> 
     <input matInput (keyup)="applyFilter($event)" placeholder="Ex.ium" #input>

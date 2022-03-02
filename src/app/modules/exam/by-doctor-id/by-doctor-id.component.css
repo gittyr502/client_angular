@@ -6,3 +6,9 @@ table {
     font-size: 14px;
     width: 100%;
   }
+
+  .example-action-button {
+    margin-top: 8px;
+    margin-right: 8px;
+  }
+  

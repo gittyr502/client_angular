@@ -1,9 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Examination } from 'src/app/models/examinations.model';
 import { ExamService } from 'src/app/services/exam.service';
+import { ExamModule } from '../exam.module';
+
 
 @Component({
   selector: 'app-by-doctor-id',
@@ -13,11 +15,13 @@ import { ExamService } from 'src/app/services/exam.service';
 export class ByDoctorIdComponent implements OnInit {
 
  
-  constructor(private examService:ExamService,private _acr: ActivatedRoute, ) { }
+  constructor(private examService:ExamService,private _acr: ActivatedRoute, private route:Router) { }
         displayedColumns: string[] = ['index','examination date', 'patient id','labyrinth_comments','labyrinth_diagnosis','doctor_comments', 'result','send message to patient'];
         idPatient!:number;
         examinations!:Examination[];
         dataSource!:any;
+        links = ['exams', 'add user', 'discussion groups'];
+       activeLink = this.links[0];
         
   @ViewChild(MatSort) sort!: MatSort;
 
@@ -44,5 +48,7 @@ ngOnInit(): void {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-
+  navigator(){
+    this.route.navigate(['/'+this.activeLink]);
+  }
 }

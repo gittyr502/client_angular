@@ -25,6 +25,7 @@ import { Router, RouterModule, RouterOutlet, Routes } from '@angular/router';
 import { ByPatientIdComponent } from './modules/exam/by-patient-id/by-patient-id.component';
 import { ByDoctorIdComponent } from './modules/exam/by-doctor-id/by-doctor-id.component';
 import { ByLabIdComponent } from './modules/exam/by-lab-id/by-lab-id.component';
+import { AddUserComponent } from './add-user/add-user.component';
 
 // import {Ng}
 
@@ -49,7 +50,8 @@ const routes: Routes = [
 ];
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AddUserComponent
     
   ],  
   imports: [

@@ -12,6 +12,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
+import {  MatTabsModule} from '@angular/material/tabs';
+
 
 
 
@@ -42,12 +46,14 @@ import { MatIconModule } from '@angular/material/icon';
     MatInputModule,
     MatIconModule,
     MatRippleModule,
-    RouterModule
+    RouterModule,
+    BrowserAnimationsModule,
+    MatTabsModule
   ],
   exports: [
     LogInComponent
   ],
-  schemas:[CUSTOM_ELEMENTS_SCHEMA]
+  schemas:[CUSTOM_ELEMENTS_SCHEMA],
 
   
 
