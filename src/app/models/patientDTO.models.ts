@@ -1,3 +1,5 @@
+import { EmailValidator } from "@angular/forms";
+
 export class patientDTO {
     patientId: number;
     idNumber: string;
@@ -5,15 +7,20 @@ export class patientDTO {
     birthDate: Date;
     firstName: string;
     lastName: string;
-    constructor(patientId: number, idNumber: string, userId: number,birthDate: Date,
+    email: string;
+    password: string;
+    constructor(patientId: number, idNumber: string, userId: number, birthDate: Date,
         firstName: string,
-        lastName: string) {
-            this.patientId=patientId;
-            this.idNumber= idNumber; 
-            this.userId=userId; 
-            this.birthDate=birthDate;
-        this.firstName=firstName;
-        this.lastName=lastName;
+        lastName: string, email: string,
+        password: string) {
+        this.patientId = patientId;
+        this.idNumber = idNumber;
+        this.userId = userId;
+        this.birthDate = birthDate;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
 
     }
 }

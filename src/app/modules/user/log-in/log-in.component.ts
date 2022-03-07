@@ -15,8 +15,7 @@ import { Router } from '@angular/router';
 })
 export class LogInComponent implements OnInit {
   hide = true;
-  links = ['exams', 'add user', 'discussion groups'];
-  activeLink = this.links[0];
+  
   loginForm: FormGroup = new FormGroup({
     email: new FormControl(),
     password: new FormControl(),

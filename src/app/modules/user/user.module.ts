@@ -14,7 +14,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
+
 import {  MatTabsModule} from '@angular/material/tabs';
+import { AddUserComponent } from 'src/app/add-user/add-user.component';
 
 
 
@@ -36,7 +38,7 @@ import {  MatTabsModule} from '@angular/material/tabs';
 
 
 @NgModule({
-  declarations: [LogInComponent],
+  declarations: [LogInComponent,AddUserComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -48,7 +50,7 @@ import {  MatTabsModule} from '@angular/material/tabs';
     MatRippleModule,
     RouterModule,
     BrowserAnimationsModule,
-    MatTabsModule
+    MatTabsModule,
   ],
   exports: [
     LogInComponent

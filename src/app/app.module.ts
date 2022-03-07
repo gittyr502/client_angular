@@ -4,7 +4,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { UserModule } from './modules/user/user.module';
 import { LogInComponent } from './modules/user/log-in/log-in.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule, MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
@@ -25,7 +24,7 @@ import { Router, RouterModule, RouterOutlet, Routes } from '@angular/router';
 import { ByPatientIdComponent } from './modules/exam/by-patient-id/by-patient-id.component';
 import { ByDoctorIdComponent } from './modules/exam/by-doctor-id/by-doctor-id.component';
 import { ByLabIdComponent } from './modules/exam/by-lab-id/by-lab-id.component';
-import { AddUserComponent } from './add-user/add-user.component';
+import { UserModule } from './modules/user/user.module';
 
 // import {Ng}
 
@@ -51,7 +50,6 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    AddUserComponent
     
   ],  
   imports: [
@@ -72,6 +70,7 @@ const routes: Routes = [
     MatInputModule,
     AppRoutingModule,
     ExamModule,
+    UserModule,
     RouterModule.forRoot(routes)
   ],
   
