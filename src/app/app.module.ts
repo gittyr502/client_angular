@@ -36,6 +36,8 @@ const routes: Routes = [
   },{
     path: 'user',
     component:LogInComponent
+    // component:AddUserComponent
+
   },
   // {
   //   path: '**',
