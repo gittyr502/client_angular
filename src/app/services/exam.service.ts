@@ -15,12 +15,12 @@ export class ExamService {
   getExamById(id:number): Observable<Examination[]>{
       return this._http.get<any>('http://localhost:21757/api/Exam/GetByPatientIdChecked/'+id);
   }
-  getExamByDoctorId(id:number){
-    return this._http.get<any>('http://localhost:21757/GetByPatientIdChecked/'+id);
+  getExamByDoctorId(id:number):Observable<Examination[]>{
+    return this._http.get<any>('http://localhost:21757/api/Exam/getByDoctorId/'+id);
   }
 
-  getExamByTestTubeId(id:number):Observable<Examination[]>{
-    return this._http.get<any>('http://localhost:21757/api/Exam/{id}'+id);
+  getExamsLab(id:number):Observable<Examination[]>{
+    return this._http.get<any>('http://localhost:21757/api/Exam/GetAllExam');
   }
 
   }

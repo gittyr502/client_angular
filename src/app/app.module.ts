@@ -18,13 +18,14 @@ import {MatStepperModule} from '@angular/material/stepper';
 import { CommonModule } from '@angular/common';
 import {MatCardModule} from '@angular/material/card';
 import {MatDialogModule} from '@angular/material/dialog';
-import { LoginService } from './services/login.service';
+import {  UserService } from './services/user.service';
 import { ExamModule } from './modules/exam/exam.module';
 import { Router, RouterModule, RouterOutlet, Routes } from '@angular/router';
 import { ByPatientIdComponent } from './modules/exam/by-patient-id/by-patient-id.component';
 import { ByDoctorIdComponent } from './modules/exam/by-doctor-id/by-doctor-id.component';
 import { ByLabIdComponent } from './modules/exam/by-lab-id/by-lab-id.component';
 import { UserModule } from './modules/user/user.module';
+import { ResetPasswordComponent } from './modules/user/reset-password/reset-password.component';
 
 // import {Ng}
 
@@ -41,8 +42,10 @@ const routes: Routes = [
   // },
   {path:'patient',component:ByPatientIdComponent},
   {path:'patient/:id',component:ByPatientIdComponent},
+  {path:'doctor',component:ByDoctorIdComponent},
   {path:'doctor/:id',component:ByDoctorIdComponent},
   {path:'lab',component:ByLabIdComponent},
+  {path:'pass',component:ResetPasswordComponent}
   // {path:'manager/:id',component:ByDoctorIdComponent}
   //loadChildren: () => import('./modules/exam/exam.module').then(m => m.ExamModule)
 
@@ -77,7 +80,7 @@ const routes: Routes = [
 
   providers: [
     { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } },
-    LoginService  ],
+    UserService  ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
   ],
