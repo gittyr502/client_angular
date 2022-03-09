@@ -26,6 +26,7 @@ import { ByDoctorIdComponent } from './modules/exam/by-doctor-id/by-doctor-id.co
 import { ByLabIdComponent } from './modules/exam/by-lab-id/by-lab-id.component';
 import { UserModule } from './modules/user/user.module';
 import { ResetPasswordComponent } from './modules/user/reset-password/reset-password.component';
+import { AddUserComponent } from './modules/user/add-user/add-user.component';
 
 // import {Ng}
 
@@ -34,7 +35,9 @@ const routes: Routes = [
     path: "", pathMatch:"full", redirectTo:"user"
   },{
     path: 'user',
-    component:LogInComponent
+    // component:LogInComponent
+    component:AddUserComponent
+
   },
   // {
   //   path: '**',

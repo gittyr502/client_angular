@@ -16,12 +16,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
 import {  MatTabsModule} from '@angular/material/tabs';
-<<<<<<< HEAD
 import { AddUserComponent } from 'src/app/modules/user/add-user/add-user.component';
-=======
-import { AddUserComponent } from 'src/app/add-user/add-user.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
->>>>>>> e9e23825247872cb95b1de510b3d3df4c30096af
 
 
 
@@ -43,9 +39,10 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 
 
 @NgModule({
-  declarations: [LogInComponent,AddUserComponent,ResetPasswordComponent],
+  declarations: [LogInComponent,ResetPasswordComponent,AddUserComponent],
   imports: [
     CommonModule,
+    FormsModule,
     ReactiveFormsModule,
     MatNativeDateModule,
     MatButtonModule,
