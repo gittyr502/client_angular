@@ -10,7 +10,7 @@ import { UserDTO } from '../models/userDTO.models';
   providedIn: 'root'
 })
 export class UserService {
-  userId:number=1070;
+  userId:number=1076;
   baseURL='/api/User/';
   constructor(private _http: HttpClient){
 
@@ -21,7 +21,7 @@ export class UserService {
   }
 
   sendMail(email:string):Observable<any>{
-    return this._http.put<any>('http://localhost:21757/api/User/sendCodeToUpdatePassword/',email);
+    return this._http.get<any>('http://localhost:21757/api/User/sendCodeToUpdatePassword/{email}'+email)
   }
   updatePassword(code:string,newPass:string)
   {

@@ -15,7 +15,7 @@ styleUrls:['./reset-password.component.css']})
 
 export class ResetPasswordComponent implements OnInit {
     
-    show:boolean=true;
+    show:boolean=false;
     emailForm: FormGroup = new FormGroup({
         email: new FormControl(),
    
@@ -36,9 +36,14 @@ export class ResetPasswordComponent implements OnInit {
     }
     sendMail(email:string)
     {
-            this._userService.sendMail(email).subscribe(()=>
-              this.show=true
-            )
+            this._userService.sendMail(email)
+            .subscribe(
+              (userId)=>{
+
+              this._userService.userId=userId;
+              this.show=true;
+            });
+              
                     // data => {console.log(data)
                     //   ;
                     // },
@@ -46,8 +51,8 @@ export class ResetPasswordComponent implements OnInit {
     }
 
     updatePassword(code:string,newPass:string, newPass2:string){
-if (newPass==newPass)
-    this._userService.updatePassword(code,newPass);
+          if (newPass==newPass)
+          this._userService.updatePassword(code,newPass);
     }
  }
 

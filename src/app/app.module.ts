@@ -26,6 +26,7 @@ import { ByDoctorIdComponent } from './modules/exam/by-doctor-id/by-doctor-id.co
 import { ByLabIdComponent } from './modules/exam/by-lab-id/by-lab-id.component';
 import { UserModule } from './modules/user/user.module';
 import { ResetPasswordComponent } from './modules/user/reset-password/reset-password.component';
+import { AddUserComponent } from './modules/user/add-user/add-user.component';
 
 // import {Ng}
 
@@ -45,7 +46,8 @@ const routes: Routes = [
   {path:'doctor',component:ByDoctorIdComponent},
   {path:'doctor/:id',component:ByDoctorIdComponent},
   {path:'lab',component:ByLabIdComponent},
-  {path:'pass',component:ResetPasswordComponent}
+  {path:'pass',component:ResetPasswordComponent},
+  {path:'add',component:AddUserComponent}
   // {path:'manager/:id',component:ByDoctorIdComponent}
   //loadChildren: () => import('./modules/exam/exam.module').then(m => m.ExamModule)
 
