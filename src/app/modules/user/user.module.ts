@@ -16,7 +16,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
 import {  MatTabsModule} from '@angular/material/tabs';
-import { AddUserComponent } from 'src/app/add-user/add-user.component';
+import { AddUserComponent } from 'src/app/modules/user/add-user/add-user.component';
 
 
 
@@ -51,6 +51,7 @@ import { AddUserComponent } from 'src/app/add-user/add-user.component';
     RouterModule,
     BrowserAnimationsModule,
     MatTabsModule,
+    MatNativeDateModule
   ],
   exports: [
     LogInComponent
