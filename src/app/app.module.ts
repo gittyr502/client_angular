@@ -35,8 +35,8 @@ const routes: Routes = [
     path: "", pathMatch:"full", redirectTo:"user"
   },{
     path: 'user',
-    // component:LogInComponent
-    component:AddUserComponent
+    component:LogInComponent
+    // component:AddUserComponent
 
   },
   // {
