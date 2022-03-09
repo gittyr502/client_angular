@@ -9,7 +9,7 @@ import { UserDTO } from '../models/userDTO.models';
   providedIn: 'root'
 })
 export class ExamService {
-  baseURL='/api/Exam/';
+  //baseURL='/api/Exam/';
 
   constructor(private _http: HttpClient) { } 
   getExamById(id:number): Observable<Examination[]>{
