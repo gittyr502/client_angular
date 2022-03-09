@@ -14,6 +14,7 @@ import {  MatTabsModule} from '@angular/material/tabs';
 import {MatInputModule} from '@angular/material/input';
 import { ByDoctorIdComponent } from './by-doctor-id/by-doctor-id.component';
 import { ByLabIdComponent } from './by-lab-id/by-lab-id.component';
+import { AddExanComponent } from './add-exan/add-exan.component';
 
 
 
@@ -33,7 +34,8 @@ const routes: Routes = [
   declarations: [
     ByPatientIdComponent,
     ByDoctorIdComponent,
-    ByLabIdComponent
+    ByLabIdComponent,
+    AddExanComponent
   ],
   imports: [
     CommonModule,

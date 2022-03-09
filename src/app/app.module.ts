@@ -48,7 +48,8 @@ const routes: Routes = [
   {path:'doctor',component:ByDoctorIdComponent},
   {path:'doctor/:id',component:ByDoctorIdComponent},
   {path:'lab',component:ByLabIdComponent},
-  {path:'pass',component:ResetPasswordComponent}
+  {path:'pass',component:ResetPasswordComponent},
+  {path:'add',component:AddUserComponent}
   // {path:'manager/:id',component:ByDoctorIdComponent}
   //loadChildren: () => import('./modules/exam/exam.module').then(m => m.ExamModule)
 
