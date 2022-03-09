@@ -21,10 +21,10 @@ export class UserService {
   }
 
   sendMail(email:string):Observable<any>{
-    return this._http.get<any>('http://localhost:21757/api/User/sendCodeToUpdatePassword/{email}'+email)
+    return this._http.get<any>('http://localhost:21757/api/User/sendCodeToUpdatePassword/'+email)
   }
   updatePassword(code:string,newPass:string)
   {
-    return this._http.get<any>('http://localhost:21757/api/User/updatePassword/{code}/{password}/{id}'+code+newPass+this.userId);
+    return this._http.get<any>('http://localhost:21757/api/User/updatePassword/'+code+newPass+this.userId);
   }
 }
