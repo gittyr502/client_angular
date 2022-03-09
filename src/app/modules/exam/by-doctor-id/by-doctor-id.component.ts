@@ -16,7 +16,10 @@ export class ByDoctorIdComponent implements OnInit {
 
  
   constructor(private examService:ExamService,private _acr: ActivatedRoute, private route:Router) { }
-        displayedColumns: string[] = ['index','examination date', 'patient id','labyrinth_comments','labyrinth_diagnosis','doctor_comments', 'result','send message to patient'];
+        displayedColumns: string[] = ['index','examination date', 'patient id','labyrinth_comments','labyrinth_diagnosis','doctor_comments', 'result',
+        
+      //  'send message to patient'
+      ];
         idPatient!:number;
         examinations!:Examination[];
         dataSource!:any;
@@ -41,9 +44,10 @@ ngOnInit(): void {
     });
     
   }
-  ngAfterViewInit() {
-  this.dataSource.sort = this.sort;
-}
+//   ngAfterViewInit() {
+   
+//   this.dataSource.sort = this.sort;
+// }
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();

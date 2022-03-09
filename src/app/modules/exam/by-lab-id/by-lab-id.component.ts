@@ -29,7 +29,7 @@ export class ByLabIdComponent implements OnInit {
   examinations!:Examination[];
   dataSource!:any;
   
-  displayedColumns: string[] = ['id', 'examDate', 'computerDiagnosis', 'computerComments','probability','linkToPicture'];
+  displayedColumns: string[] = ['index', 'examDate', 'computerDiagnosis', 'computerComments','probability','linkToPicture'];
   
 
   constructor(private examService:ExamService) { 
@@ -44,7 +44,7 @@ export class ByLabIdComponent implements OnInit {
 
 
 
-    this.examService.getExamByTestTubeId(this.id).subscribe(data => {
+    this.examService.getExamsLab(this.id).subscribe(data => {
       if (data) {
       this.examinations=data;
        this.dataSource = new MatTableDataSource(this.examinations);

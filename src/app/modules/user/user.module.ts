@@ -16,7 +16,12 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
 import {  MatTabsModule} from '@angular/material/tabs';
+<<<<<<< HEAD
 import { AddUserComponent } from 'src/app/modules/user/add-user/add-user.component';
+=======
+import { AddUserComponent } from 'src/app/add-user/add-user.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+>>>>>>> e9e23825247872cb95b1de510b3d3df4c30096af
 
 
 
@@ -38,7 +43,7 @@ import { AddUserComponent } from 'src/app/modules/user/add-user/add-user.compone
 
 
 @NgModule({
-  declarations: [LogInComponent,AddUserComponent],
+  declarations: [LogInComponent,AddUserComponent,ResetPasswordComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -54,7 +59,8 @@ import { AddUserComponent } from 'src/app/modules/user/add-user/add-user.compone
     MatNativeDateModule
   ],
   exports: [
-    LogInComponent
+    LogInComponent,
+    ResetPasswordComponent
   ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA],
 
