@@ -16,15 +16,10 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
 import {  MatTabsModule} from '@angular/material/tabs';
-<<<<<<< HEAD
-import { AddUserComponent } from 'src/app/modules/user/add-user/add-user.component';
-import { ResetPasswordComponent } from './reset-password/reset-password.component';
-=======
 
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { AddUserComponent } from './add-user/add-user.component';
 
->>>>>>> f96076c706cf31b9b54d6295757a73040f693993
 
 
 
