@@ -27,6 +27,7 @@ import { ByLabIdComponent } from './modules/exam/by-lab-id/by-lab-id.component';
 import { UserModule } from './modules/user/user.module';
 import { ResetPasswordComponent } from './modules/user/reset-password/reset-password.component';
 import { AddUserComponent } from './modules/user/add-user/add-user.component';
+import { AddPatientComponent } from './modules/user/add-patient/add-patient.component';
 
 // import {Ng}
 
@@ -57,6 +58,7 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
+    AddPatientComponent,
 
   ],
   imports: [
