@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {  UserService } from 'src/app/services/user.service';
-import { FormControl, FormGroup, FormsModule } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { UserDTO } from 'src/app/models/userDTO.models';
 import { Router } from '@angular/router';
 
