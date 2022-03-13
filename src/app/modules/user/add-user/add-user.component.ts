@@ -3,6 +3,7 @@ import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/fo
 import { ErrorStateMatcher } from '@angular/material/core';
 import { FocusMonitor } from '@angular/cdk/a11y';
 import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
+import { MyTel } from './example-tel-input';
 import {
   ElementRef,
   Inject,
@@ -42,7 +43,7 @@ import { Subject } from 'rxjs';
   styleUrls: ['./add-user.component.css']
 })
 export class AddUserComponent implements OnInit {
-  emailFormControl = new FormControl('', [Validators.required, Validators.email]);
+  //emailFormControl = new FormControl('', [Validators.required, Validators.email]);
 
   matcher = new MyErrorStateMatcher();
   form: FormGroup = new FormGroup({
@@ -62,7 +63,5 @@ export class AddUserComponent implements OnInit {
 
 }
 
-export class MyTel {
-  constructor(public area: string, public exchange: string, public subscriber: string) { }
-}
+
 

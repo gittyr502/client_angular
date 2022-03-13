@@ -1,48 +1,53 @@
-<p>
+< <p>
     <mat-form-field appearance="legacy">
         <mat-label>id number</mat-label>
         <input matInput placeholder="Placeholder">
     </mat-form-field>
-</p>
+    </p>
 
-<!-- <<<<<<< HEAD=======< mat-form-field appearance="fill">
+    <!--<<<<<< HEAD=======< mat-form-field appearance="fill">
     <mat-label>Choose a birthDate</mat-label>
     #docregion toggle
     <input matInput [matDatepicker]="picker">
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker> -->
-<!-- #enddocregion toggle -->
-<!-- </mat-form-field> -->
-<!-- >>>>>>> f96076c706cf31b9b54d6295757a73040f693993 -->-->
-
-<p>
-    <mat-form-field appearance="legacy">
-        <mat-label>first name</mat-label>
-        <input matInput placeholder="Placeholder">
-    </mat-form-field>
-</p>
-
-<p>
-    <mat-form-field appearance="legacy">
-        <mat-label>last name</mat-label>
-        <input matInput placeholder="Placeholder">
-    </mat-form-field>
-</p>
-
-<div [formGroup]="form">
-    <mat-form-field appearance="fill">
-        <mat-label>Phone number</mat-label>
-        <example-tel-input formControlName="tel" required></example-tel-input>
-        <mat-icon matSuffix>phone</mat-icon>
-    </mat-form-field>
-</div>
-
-
-<mat-form-field appearance="fill">
-    <mat-label>select user kind</mat-label>
-    <mat-select [(ngModel)]="selectedValue" name="op" id="op">
-        <mat-option *ngFor="let op of options" [value]="op">
-            {{op}}
-        </mat-option>
-    </mat-select>
+    <!-- #enddocregion toggle >
 </mat-form-field>
+>>>>>>> f96076c706cf31b9b54d6295757a73040f693993 -->
+
+    <p>
+        <mat-form-field appearance="legacy">
+            <mat-label>first name</mat-label>
+            <input matInput placeholder="Placeholder">
+        </mat-form-field>
+    </p>
+
+    <p>
+        <mat-form-field appearance="legacy">
+            <mat-label>last name</mat-label>
+            <input matInput placeholder="Placeholder">
+        </mat-form-field>
+    </p>
+
+    <div [formGroup]="form">
+        <mat-form-field appearance="fill">
+            <mat-label>Phone number</mat-label>
+            <!-- <example-tel-input formControlName="tel" required></example-tel-input> -->
+            <mat-icon matSuffix>phone</mat-icon>
+        </mat-form-field>
+    </div>
+
+    <p>
+        <mat-form-field appearance="legacy" [formGroup]="form">
+            <mat-label>email</mat-label>
+            <input matInput placeholder="Placeholder">
+        </mat-form-field>
+    </p>
+    <!-- <mat-form-field appearance="fill">
+        <mat-label>select user kind</mat-label>
+        <mat-select [(ngModel)]="selectedValue" name="op" id="op">
+            <mat-option *ngFor="let op of options" [value]="op">
+                {{op}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field> -->

@@ -1,16 +1,19 @@
 import { FocusMonitor } from "@angular/cdk/a11y";
 import { BooleanInput, coerceBooleanProperty } from "@angular/cdk/coercion";
 import { Component, ElementRef, Inject, Input, OnDestroy, Optional, Self, ViewChild } from "@angular/core";
-import { AbstractControl, ControlValueAccessor, FormBuilder, FormGroup, NgControl, Validators } from "@angular/forms";
+import { inject } from "@angular/core/testing";
+
+import { AbstractControl, ControlValueAccessor, FormBuilder, FormControl, FormGroup, NgControl, Validators } from "@angular/forms";
 import { MatFormField, MatFormFieldControl, MAT_FORM_FIELD } from "@angular/material/form-field";
 import { Subject } from "rxjs";
-import { MyTel } from "./add-user.component";
+// import { MyTel } from "./add-user.component";
+
 
 /** Custom `MatFormFieldControl` for telephone number input. */
 @Component({
     selector: 'example-tel-input',
-    templateUrl: './example-tel-input-example.html',
-    styleUrls: ['example-tel-input-example.css'],
+    templateUrl: 'example-tel-input.html',
+    styleUrls: ['example-tel-input.css'],
     providers: [{ provide: MatFormFieldControl, useExisting: MyTelInput }],
     host: {
         '[class.example-floating]': 'shouldLabelFloat',
@@ -23,7 +26,13 @@ export class MyTelInput implements ControlValueAccessor, MatFormFieldControl<MyT
     @ViewChild('exchange') exchangeInput: HTMLInputElement = new HTMLInputElement();
     @ViewChild('subscriber') subscriberInput: HTMLInputElement = new HTMLInputElement();
 
-    parts: FormGroup;
+    parts: FormGroup = new FormGroup({
+        'area': new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(3)]),
+       'exchange' : new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(3)]),
+        'subscriber': new FormControl(null, [Validators.required, Validators.minLength(4), Validators.maxLength(4)])
+    });
+
+
     stateChanges = new Subject<void>();
     focused = false;
     touched = false;
@@ -55,7 +64,7 @@ export class MyTelInput implements ControlValueAccessor, MatFormFieldControl<MyT
         this._placeholder = value;
         this.stateChanges.next();
     }
-    private _placeholder: string="";
+    private _placeholder: string = "";
 
     @Input()
     get required(): boolean {
@@ -99,17 +108,18 @@ export class MyTelInput implements ControlValueAccessor, MatFormFieldControl<MyT
     }
 
     constructor(
+
         formBuilder: FormBuilder,
         private _focusMonitor: FocusMonitor,
         private _elementRef: ElementRef<HTMLElement>,
         @Optional() @Inject(MAT_FORM_FIELD) public _formField: MatFormField,
         @Optional() @Self() public ngControl: NgControl,
     ) {
-        this.parts = formBuilder.group({
-            area: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(3)]],
-            exchange: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(3)]],
-            subscriber: [null, [Validators.required, Validators.minLength(4), Validators.maxLength(4)]],
-        });
+        // this.parts = formBuilder.group({
+        //    ['area'] : [null, [Validators.required, Validators.minLength(3), Validators.maxLength(3)]],
+        //    ['exchange'] : [null, [Validators.required, Validators.minLength(3), Validators.maxLength(3)]],
+        //     ['subscriber']: [null, [Validators.required, Validators.minLength(4), Validators.maxLength(4)]],
+        // });
 
         if (this.ngControl != null) {
             this.ngControl.valueAccessor = this;
@@ -166,8 +176,8 @@ export class MyTelInput implements ControlValueAccessor, MatFormFieldControl<MyT
         } else {
             this._focusMonitor.focusVia(this.areaInput, 'program');
         }
-    
-        if (this.parts.controls["subscriber"].valid)
+
+        // if (this.parts.controls["subscriber"].valid)
 
     }
     writeValue(tel: MyTel | null): void {
@@ -189,5 +199,10 @@ export class MyTelInput implements ControlValueAccessor, MatFormFieldControl<MyT
     _handleInput(control: AbstractControl, nextElement?: HTMLInputElement): void {
         this.autoFocusNext(control, nextElement);
         this.onChange(this.value);
+    }
+}
+export class MyTel {
+    constructor(public area: string, public exchange: string, public subscriber: string) {
+
     }
 }
