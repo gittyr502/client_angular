@@ -1,5 +1,6 @@
+<form class="example-form">
 < <p>
-    <mat-form-field appearance="legacy">
+    <mat-form-field appearance="legacy" class="example-full-width" >
         <mat-label>id number</mat-label>
         <input matInput placeholder="Placeholder">
     </mat-form-field>
@@ -20,8 +21,12 @@
             <mat-label>first name</mat-label>
             <input matInput placeholder="Placeholder">
         </mat-form-field>
+         <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Address 2</mat-label>
+        <textarea matInput></textarea>
+      </mat-form-field>
     </p>
-
+   
     <p>
         <mat-form-field appearance="legacy">
             <mat-label>last name</mat-label>
@@ -32,7 +37,7 @@
     <div [formGroup]="form">
         <mat-form-field appearance="fill">
             <mat-label>Phone number</mat-label>
-            <!-- <example-tel-input formControlName="tel" required></example-tel-input> -->
+            <example-tel-input formControlName="tel" required></example-tel-input>
             <mat-icon matSuffix>phone</mat-icon>
         </mat-form-field>
     </div>
@@ -51,3 +56,4 @@
             </mat-option>
         </mat-select>
     </mat-form-field> -->
+</form>

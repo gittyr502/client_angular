@@ -19,6 +19,7 @@ import {  MatTabsModule} from '@angular/material/tabs';
 
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { AddUserComponent } from './add-user/add-user.component';
+import { MyTelInput } from "./add-user/example-tel-input";
 
 
 
@@ -41,11 +42,9 @@ import { AddUserComponent } from './add-user/add-user.component';
 
 
 @NgModule({
-  declarations: [LogInComponent,ResetPasswordComponent,AddUserComponent],
+  declarations: [LogInComponent,ResetPasswordComponent,AddUserComponent,MyTelInput],
   imports: [
     CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
     MatNativeDateModule,
     MatButtonModule,
     MatFormFieldModule,
@@ -55,12 +54,15 @@ import { AddUserComponent } from './add-user/add-user.component';
     RouterModule,
     BrowserAnimationsModule,
     MatTabsModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    // FormsModule,
+    ReactiveFormsModule,
   ],
   exports: [
     LogInComponent,
     ResetPasswordComponent,
-    AddUserComponent
+    AddUserComponent,
+    
   ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA],
 

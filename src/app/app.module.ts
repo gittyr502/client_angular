@@ -61,8 +61,6 @@ const routes: Routes = [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule,
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
@@ -77,6 +75,8 @@ const routes: Routes = [
     AppRoutingModule,
     ExamModule,
     UserModule,
+    // FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(routes)
   ],
 

@@ -1,15 +1,14 @@
 import { FocusMonitor } from "@angular/cdk/a11y";
 import { BooleanInput, coerceBooleanProperty } from "@angular/cdk/coercion";
 import { Component, ElementRef, Inject, Input, OnDestroy, Optional, Self, ViewChild } from "@angular/core";
-import { inject } from "@angular/core/testing";
-
-import { AbstractControl, ControlValueAccessor, FormBuilder, FormControl, FormGroup, NgControl, Validators } from "@angular/forms";
+import { AbstractControl, ControlValueAccessor, FormBuilder, FormGroup, NgControl, Validators } from "@angular/forms";
 import { MatFormField, MatFormFieldControl, MAT_FORM_FIELD } from "@angular/material/form-field";
 import { Subject } from "rxjs";
+//import { MyTel } from "./example-tel-input";
+export class MyTel {
+    constructor(public area: string, public exchange: string, public subscriber: string) {}
+  }
 // import { MyTel } from "./add-user.component";
-
-
-/** Custom `MatFormFieldControl` for telephone number input. */
 @Component({
     selector: 'example-tel-input',
     templateUrl: 'example-tel-input.html',
@@ -22,17 +21,17 @@ import { Subject } from "rxjs";
 })
 export class MyTelInput implements ControlValueAccessor, MatFormFieldControl<MyTel>, OnDestroy {
     static nextId = 0;
-    @ViewChild('area') areaInput: HTMLInputElement = new HTMLInputElement();
-    @ViewChild('exchange') exchangeInput: HTMLInputElement = new HTMLInputElement();
-    @ViewChild('subscriber') subscriberInput: HTMLInputElement = new HTMLInputElement();
+    @ViewChild('area') areaInput!: HTMLInputElement  ;
+    @ViewChild('exchange') exchangeInput!: HTMLInputElement  ;
+    @ViewChild('subscriber')
+    subscriberInput!: HTMLInputElement;
 
-    parts: FormGroup = new FormGroup({
-        'area': new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(3)]),
-       'exchange' : new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(3)]),
-        'subscriber': new FormControl(null, [Validators.required, Validators.minLength(4), Validators.maxLength(4)])
-    });
-
-
+    parts: FormGroup;
+    // = new FormGroup({
+    //     'area': new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(3)]),
+    //    'exchange' : new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(3)]),
+    //     'subscriber': new FormControl(null, [Validators.required, Validators.minLength(4), Validators.maxLength(4)])
+    // });
     stateChanges = new Subject<void>();
     focused = false;
     touched = false;
@@ -113,13 +112,13 @@ export class MyTelInput implements ControlValueAccessor, MatFormFieldControl<MyT
         private _focusMonitor: FocusMonitor,
         private _elementRef: ElementRef<HTMLElement>,
         @Optional() @Inject(MAT_FORM_FIELD) public _formField: MatFormField,
-        @Optional() @Self() public ngControl: NgControl,
+        @Optional() @Self() public ngControl: NgControl
     ) {
-        // this.parts = formBuilder.group({
-        //    ['area'] : [null, [Validators.required, Validators.minLength(3), Validators.maxLength(3)]],
-        //    ['exchange'] : [null, [Validators.required, Validators.minLength(3), Validators.maxLength(3)]],
-        //     ['subscriber']: [null, [Validators.required, Validators.minLength(4), Validators.maxLength(4)]],
-        // });
+        this.parts = formBuilder.group({
+            ['area']: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(3)]],
+            ['exchange']: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(3)]],
+            ['subscriber']: [null, [Validators.required, Validators.minLength(4), Validators.maxLength(4)]],
+        });
 
         if (this.ngControl != null) {
             this.ngControl.valueAccessor = this;
@@ -161,7 +160,7 @@ export class MyTelInput implements ControlValueAccessor, MatFormFieldControl<MyT
 
     setDescribedByIds(ids: string[]) {
         const controlElement = this._elementRef.nativeElement.querySelector(
-            '.example-tel-input-container',
+            '.example-tel-input-container'
         )!;
         controlElement.setAttribute('aria-describedby', ids.join(' '));
     }
@@ -178,7 +177,6 @@ export class MyTelInput implements ControlValueAccessor, MatFormFieldControl<MyT
         }
 
         // if (this.parts.controls["subscriber"].valid)
-
     }
     writeValue(tel: MyTel | null): void {
         this.value = tel;
@@ -201,8 +199,4 @@ export class MyTelInput implements ControlValueAccessor, MatFormFieldControl<MyT
         this.onChange(this.value);
     }
 }
-export class MyTel {
-    constructor(public area: string, public exchange: string, public subscriber: string) {
 
-    }
-}
