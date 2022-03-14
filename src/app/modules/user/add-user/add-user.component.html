@@ -1,8 +1,10 @@
-<form class="example-form">
-< <p>
-    <mat-form-field appearance="legacy" class="example-full-width" >
+<div class="">
+
+<form class="example-form" [formGroup]="form">
+    <p>
+    <mat-form-field appearance="fill" matFormFieldControl="idNumber" >
         <mat-label>id number</mat-label>
-        <input matInput placeholder="Placeholder">
+        <input matInput placeholder="Placeholder" >
     </mat-form-field>
     </p>
 
@@ -16,44 +18,57 @@
 </mat-form-field>
 >>>>>>> f96076c706cf31b9b54d6295757a73040f693993 -->
 
-    <p>
-        <mat-form-field appearance="legacy">
+      <p>
+        <mat-form-field appearance="fill" matFormFieldControl="firstName">
             <mat-label>first name</mat-label>
             <input matInput placeholder="Placeholder">
         </mat-form-field>
-         <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Address 2</mat-label>
-        <textarea matInput></textarea>
-      </mat-form-field>
+       
     </p>
    
-    <p>
-        <mat-form-field appearance="legacy">
+     <p>
+      <mat-form-field appearance="fill" matFormFieldControl="lastName">
             <mat-label>last name</mat-label>
-            <input matInput placeholder="Placeholder">
+            <input matInput placeholder="Placeholder" >
         </mat-form-field>
-    </p>
-
-    <div [formGroup]="form">
-        <mat-form-field appearance="fill">
+    </p> 
+ 
+  <!--   <div [formGroup]="form">-->
+        <mat-form-field appearance="fill" >
             <mat-label>Phone number</mat-label>
             <example-tel-input formControlName="tel" required></example-tel-input>
             <mat-icon matSuffix>phone</mat-icon>
         </mat-form-field>
-    </div>
+ <!--   </div> -->
 
     <p>
-        <mat-form-field appearance="legacy" [formGroup]="form">
+        <mat-form-field appearance="fill" matFormFieldControl="email">
             <mat-label>email</mat-label>
-            <input matInput placeholder="Placeholder">
+            <input matInput placeholder="Placeholder"  >
         </mat-form-field>
     </p>
-    <!-- <mat-form-field appearance="fill">
-        <mat-label>select user kind</mat-label>
-        <mat-select [(ngModel)]="selectedValue" name="op" id="op">
-            <mat-option *ngFor="let op of options" [value]="op">
+  
+        <p>
+        <mat-form-field appearance="fill"  matFormFieldControl="selectedValue">
+            <mat-label>select user kind</mat-label> 
+            <!-- <input matInput placeholder="Placeholder" > -->
+           <select  name="op" id="op" > 
+             <option *ngFor="let op of options" >
                 {{op}}
-            </mat-option>
-        </mat-select>
-    </mat-form-field> -->
+            </option>
+        </select> 
+        <input matInput placeholder="Placeholder" style="opacity: 0;">
+        </mat-form-field> 
+     <!-- [value]="op" -->
+    </p>
+
+    <select>
+        <option *ngFor="let op of options">
+            {{op}}
+        </option>
+    </select>
+   
+     
 </form>
+
+</div>

@@ -43,14 +43,21 @@ import { Subject } from 'rxjs';
   styleUrls: ['./add-user.component.css']
 })
 export class AddUserComponent implements OnInit {
-  //emailFormControl = new FormControl('', [Validators.required, Validators.email]);
+  // emailFormControl = new FormControl('', [Validators.required, Validators.email]);
+  // form2:FormGroup = new FormGroup({
 
+  // selectedValue = };
   matcher = new MyErrorStateMatcher();
   form: FormGroup = new FormGroup({
+    idNumber:new FormControl('idNumber', [Validators.required]),
+    email:new FormControl('email', [Validators.required, Validators.email]),
+    firstName:new FormControl('firstName', [Validators.required]),
+    lastName:new FormControl('lastName', [Validators.required]),
+    selectedValue:new FormControl('user kind',[Validators.required]),
     tel: new FormControl(new MyTel('', '', '')),
-    op: new FormControl('', Validators.required)
+   
   });
-  selectedValue: string = "";
+  //  op: new FormControl('', Validators.required)
 
   options: string[] = [
     "manager", "doctor", "lab", "patient"
