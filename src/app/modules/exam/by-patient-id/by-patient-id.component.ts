@@ -22,7 +22,7 @@ export interface PeriodicElement {
 })
 export class ByPatientIdComponent implements OnInit, AfterViewInit{
 
- 
+
   constructor(private examService:ExamService,private _acr: ActivatedRoute,private patientService:PatientService ) { }
         displayedColumns: string[] = ['index','examination date', 'doctor id', 'result'];
         idPatient!:number;
@@ -35,19 +35,19 @@ export class ByPatientIdComponent implements OnInit, AfterViewInit{
 
 
 ngOnInit(): void {
-  
+
     this._acr.paramMap.subscribe(params => {
       var idParam = params.get("id");
       if (idParam!= undefined&&idParam!=null)
         this.idUser =(Number)(idParam);
-      
+
     })
     this.patientService.getPatientsByUserId(this.idUser).subscribe(
       data=>{
       if (data)
       {this.patientsOfUser=data;
       this.selectedValue=this.patientsOfUser[0];
-      this.idPatient=this.selectedValue.patientId; 
+      this.idPatient=this.selectedValue.patientId;
       this.examService.getExamById(this.idPatient).subscribe(data => {
       if (data) {
       this.examinations=data;
@@ -58,10 +58,10 @@ ngOnInit(): void {
      }
 
     )
-    
-    
-   
-    
+
+
+
+
   }
   ngAfterViewInit() {
   // this.dataSource.sort = this.sort;
@@ -71,9 +71,9 @@ ngOnInit(): void {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 }
-  
-  
-  
+
+
+
 
 
 
