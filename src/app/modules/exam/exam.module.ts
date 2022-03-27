@@ -18,14 +18,16 @@ import { AddExanComponent } from './add-exan/add-exan.component';
 
 
 
-
 const routes: Routes = [
   {
+    
     path: "", pathMatch:"full", redirectTo:"user"
   },
   {path:'exams',component:ByDoctorIdComponent},
   // {path:'add user',component:AddUser},
   // {path:'discussion groups',component:}
+
+{path:'addExam',component:AddExanComponent}
 ];
 
 

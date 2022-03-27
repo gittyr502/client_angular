@@ -26,6 +26,7 @@ import { AddUserComponent } from './modules/user/add-user/add-user.component';
 import { AddPatientComponent } from './modules/user/add-patient/add-patient.component';
 import { LogInComponent } from './modules/user/log-in/log-in.component';
 import { AppRoutingModule } from './app-routing.module';
+import { AddExanComponent } from './modules/exam/add-exan/add-exan.component';
 
 
 
@@ -40,7 +41,8 @@ const routes: Routes = [
   { path: 'doctor/:id', component: ByDoctorIdComponent },
   { path: 'lab', component: ByLabIdComponent },
   { path: 'pass', component: ResetPasswordComponent },
-  { path: 'add user', component: AddUserComponent }
+  { path: 'add user', component: AddUserComponent },
+  {path:'addExam',component:AddExanComponent}
   // {path:'manager/:id',component:ByDoctorIdComponent}
   //loadChildren: () => import('./modules/exam/exam.module').then(m => m.ExamModule)
 
