@@ -73,8 +73,8 @@
               "browserTarget": "microscopic-picture:build:production"
             },
             "development": {
-              "browserTarget": "microscopic-picture:build:development"
-              
+              "browserTarget": "microscopic-picture:build:development",
+              "proxyConfig": "proxy.config.json"
               
             }
           },

@@ -36,7 +36,7 @@ ngOnInit(): void {
         this.idPatient =(Number)(idParam);
       
     })
-    debugger;
+    
     this.examService.getExamByDoctorId(this.idPatient).subscribe(data => {
       if (data) {
       this.examinations=data;
@@ -54,6 +54,7 @@ ngOnInit(): void {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
   navigator(){
+    debugger;
     this.route.navigate(['/'+this.activeLink]);
   }
 }
