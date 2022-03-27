@@ -16,7 +16,7 @@ export class ByDoctorIdComponent implements OnInit {
 
  
   constructor(private examService:ExamService,private _acr: ActivatedRoute, private route:Router) { }
-        displayedColumns: string[] = ['index','examination date', 'patient id','labyrinth_comments','labyrinth_diagnosis','doctor_comments', 'result',
+        displayedColumns: string[] = ['index','examination date', 'patient id','labyrinth_comments','labyrinth_diagnosis', 'result','doctor_comments'
         
       //  'send message to patient'
       ];
@@ -25,6 +25,7 @@ export class ByDoctorIdComponent implements OnInit {
         dataSource!:any;
         links = ['exams', 'add user', 'discussion groups'];
        activeLink = this.links[0];
+       doctorComments:string="";
         
   @ViewChild(MatSort) sort!: MatSort;
 
