@@ -27,6 +27,8 @@ import { AddPatientComponent } from './modules/user/add-patient/add-patient.comp
 import { LogInComponent } from './modules/user/log-in/log-in.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AddExanComponent } from './modules/exam/add-exan/add-exan.component';
+import { CloudinaryModule } from '@cloudinary/angular-5.x';
+import { AddExam2Component } from './modules/exam/add-exan/add-exam2/add-exam2.component';
 
 
 
@@ -42,7 +44,8 @@ const routes: Routes = [
   { path: 'lab', component: ByLabIdComponent },
   { path: 'pass', component: ResetPasswordComponent },
   { path: 'add user', component: AddUserComponent },
-  {path:'addExam',component:AddExanComponent}
+  {path:'addExam',component:AddExam2Component},
+  {path: 'addpatient', component:AddPatientComponent}
   // {path:'manager/:id',component:ByDoctorIdComponent}
   //loadChildren: () => import('./modules/exam/exam.module').then(m => m.ExamModule)
 
@@ -51,6 +54,7 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     AddPatientComponent,
+    AddExam2Component,
 
   ],
   imports: [
@@ -72,6 +76,7 @@ const routes: Routes = [
     ExamModule,
     UserModule,
     ReactiveFormsModule,
+    CloudinaryModule,
     RouterModule.forRoot(routes)
   ],
 
@@ -79,6 +84,7 @@ const routes: Routes = [
   providers: [
     { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } },
     UserService],
+  
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
   ],

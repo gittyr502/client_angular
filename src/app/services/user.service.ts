@@ -17,7 +17,11 @@ export class UserService {
   }
   getUser(newUser:UserDTO): Observable<User>{
       return this._http.post<any>(this.baseURL+'login',newUser);
-      
+  }
+
+  getAllUsers():Observable<any>{
+    debugger;
+    return this._http.get<any>(this.baseURL)
   }
 
   sendMail(email:string):Observable<any>{

@@ -14,48 +14,48 @@ import { ExamModule } from '../exam.module';
 })
 export class ByDoctorIdComponent implements OnInit {
 
- 
-  constructor(private examService:ExamService,private _acr: ActivatedRoute, private route:Router) { }
-        displayedColumns: string[] = ['index','examination date', 'patient id','labyrinth_comments','labyrinth_diagnosis', 'result','doctor_comments'
-        
-      //  'send message to patient'
-      ];
-        idPatient!:number;
-        examinations!:Examination[];
-        dataSource!:any;
-        links = ['exams', 'add user', 'discussion groups'];
-       activeLink = this.links[0];
-       doctorComments:string="";
-        
+
+  constructor(private examService: ExamService, private _acr: ActivatedRoute, private route: Router) { }
+  displayedColumns: string[] = ['index', 'examination date', 'patient id', 'labyrinth_comments', 'labyrinth_diagnosis', 'result', 'doctor_comments'
+
+    //  'send message to patient'
+  ];
+  idPatient!: number;
+  examinations!: Examination[];
+  dataSource!: any;
+  links = ['exams', 'add user', 'discussion groups'];
+  activeLink = this.links[0];
+  doctorComments: string = "";
+
   @ViewChild(MatSort) sort!: MatSort;
 
-ngOnInit(): void {
-  
+  ngOnInit(): void {
+
     this._acr.paramMap.subscribe(params => {
       var idParam = params.get("id");
-      if (idParam!= undefined&&idParam!=null)
-        this.idPatient =(Number)(idParam);
-      
+      if (idParam != undefined && idParam != null)
+        this.idPatient = (Number)(idParam);
+
     })
-    
+
     this.examService.getExamByDoctorId(this.idPatient).subscribe(data => {
       if (data) {
-      this.examinations=data;
-       this.dataSource = new MatTableDataSource(this.examinations);
+        this.examinations = data;
+        this.dataSource = new MatTableDataSource(this.examinations);
       }
     });
-    
+
   }
-//   ngAfterViewInit() {
-   
-//   this.dataSource.sort = this.sort;
-// }
+  //   ngAfterViewInit() {
+
+  //   this.dataSource.sort = this.sort;
+  // }
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-  navigator(){
+  navigator() {
     debugger;
-    this.route.navigate(['/'+this.activeLink]);
+    this.route.navigate(['/' + this.activeLink]);
   }
 }

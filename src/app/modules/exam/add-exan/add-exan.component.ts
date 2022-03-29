@@ -1,4 +1,3 @@
-debugger;
 
 import { Component, OnInit, Input, NgZone } from '@angular/core';
 import { FileUpLoadService } from './file-up-load.service';
@@ -9,7 +8,8 @@ import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-add-exan',
   templateUrl: './add-exan.component.html',
-  styleUrls: ['./add-exan.component.css']
+  styleUrls: ['./add-exan.component.css'],
+  providers:[Cloudinary]
 })
 export class AddExanComponent implements OnInit {
   @Input()
@@ -27,7 +27,8 @@ export class AddExanComponent implements OnInit {
 
   // Create the file uploader, wire it to upload to your account
   const uploaderOptions: FileUploaderOptions = {
-    url: `https://api.cloudinary.com/v1_1/${this.cloudinary.config().cloud_name}/upload`,
+    // url: `https://api.cloudinary.com/v1_1/${this.cloudinary.config().cloud_name}/upload`,
+    url:`https://api.cloudinary.com/v1_1/CLOUD_NAME/upload`,
     // Upload files automatically upon addition to upload queue
     autoUpload: true,
     // Use xhrTransport in favor of iframeTransport
@@ -47,7 +48,8 @@ export class AddExanComponent implements OnInit {
 
   this.uploader.onBuildItemForm = (fileItem: any, form: FormData): any => {
     // Add Cloudinary unsigned upload preset to the upload form
-    form.append('upload_preset', this.cloudinary.config().upload_preset);
+    // form.append('upload_preset', this.cloudinary.config().upload_preset);
+    form.append('upload_preset', 'PRESET_NAME');
 
     // Add file to upload
     form.append('file', fileItem);
