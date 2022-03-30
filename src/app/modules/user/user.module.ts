@@ -1,6 +1,6 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule,FormGroup,FormControl,FormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormGroup, FormControl, FormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
@@ -12,15 +12,17 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
-import {  MatTabsModule} from '@angular/material/tabs';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatSelectModule } from '@angular/material/select';
 
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { AddUserComponent } from './add-user/add-user.component';
 import { MyTelInput } from "./add-user/example-tel-input";
-
+import { CascadeSelectModule } from 'primeng/cascadeselect';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 
 
@@ -42,7 +44,7 @@ import { MyTelInput } from "./add-user/example-tel-input";
 
 
 @NgModule({
-  declarations: [LogInComponent,ResetPasswordComponent,AddUserComponent,MyTelInput],
+  declarations: [LogInComponent, ResetPasswordComponent, AddUserComponent, MyTelInput],
   imports: [
     CommonModule,
     MatNativeDateModule,
@@ -54,19 +56,24 @@ import { MyTelInput } from "./add-user/example-tel-input";
     RouterModule,
     BrowserAnimationsModule,
     MatTabsModule,
-    MatNativeDateModule,
     // FormsModule,
     ReactiveFormsModule,
+    CascadeSelectModule,
+    MatSelectModule,
+    MatFormFieldModule,
+    MatDatepickerModule
   ],
   exports: [
     LogInComponent,
     ResetPasswordComponent,
     AddUserComponent,
-    
-  ],
-  schemas:[CUSTOM_ELEMENTS_SCHEMA],
+    MatDatepickerModule,
+    MatNativeDateModule
 
-  
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+
+
 
 })
 export class UserModule { }
