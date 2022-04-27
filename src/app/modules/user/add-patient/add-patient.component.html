@@ -1,39 +1,40 @@
 <!-- <p>add-patient works!</p> -->
+<div mat-dialog-content>
+    <form [formGroup]="addPatientForm">
+        <mat-label>Select user</mat-label>
+        <mat-select [value]="selected" formControlName="user">
+            <mat-option>choose value</mat-option>
 
-<form [formGroup]="addPatientForm">
-    <mat-label>Select user</mat-label>
-    <mat-select [value]="selected" formControlName="user">
-        <mat-option>choose value</mat-option>
+            <mat-option *ngFor="let user of users" (click)="selected = user">
+                {{user}}</mat-option>
+        </mat-select>
 
-        <mat-option *ngFor="let user of users" (click)="selected = user">
-            {{user}}</mat-option>
-    </mat-select>
+        <input type="text" id="login" class="fadeIn second" name="login" placeholder="user name" name="userName" formControlName="email" #id>
+        <!--TODO:-->
+        <!-- <h5>Choose Birth Date</h5>
+        <mat-form-field appearance="fill">
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="picker">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field> -->
 
-    <input type="text" id="login" class="fadeIn second" name="login" placeholder="user name" name="userName"
-        formControlName="email" #id>
-        
-<h5>Choose Birth Date</h5>
-<mat-form-field appearance="fill">
-    <mat-label>Choose a date</mat-label>
-    <input matInput [matDatepicker]="picker">
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
-  </mat-form-field>
+        <h5>medicalInformation</h5>
+        <mat-form-field class="example-full-width" appearance="fill" formControlName="medicalInformation">
+            <mat-label>insert medicalInformation</mat-label>
+            <textarea matInput placeholder=""></textarea>
+        </mat-form-field>
 
-  <h5>medicalInformation</h5>
-  <mat-form-field class="example-full-width" appearance="fill" formControlName="medicalInformation">
-    <mat-label>insert medicalInformation</mat-label>
-    <textarea matInput placeholder=""></textarea>
-  </mat-form-field>
+        <mat-label>Select HMO</mat-label>
+        <mat-select [value]="selected" formControlName="user">
+            <mat-option>choose value</mat-option>
 
-  <mat-label>Select HMO</mat-label>
-    <mat-select [value]="selected" formControlName="user">
-        <mat-option>choose value</mat-option>
-
-        <mat-option *ngFor="let hmo1 of hmo" (click)="selectedHMO = hmo1">
-            {{hmo1}}</mat-option>
-    </mat-select>
-
+            <mat-option *ngFor="let hmo1 of hmo" (click)="selectedHMO = hmo1">
+                {{hmo1}}</mat-option>
+        </mat-select>
 
 
-</form>
+
+    </form>
+
+</div>

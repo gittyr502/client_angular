@@ -3,6 +3,7 @@ import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/fo
 import { ErrorStateMatcher } from '@angular/material/core';
 import { FocusMonitor } from '@angular/cdk/a11y';
 import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MyTel } from './example-tel-input';
 import {
   ElementRef,
@@ -22,7 +23,10 @@ import {
 } from '@angular/forms';
 
 
-
+export interface DialogData {
+  animal: string;
+  name: string;
+}
 
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -34,6 +38,10 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 
 import { MAT_FORM_FIELD, MatFormField, MatFormFieldControl } from '@angular/material/form-field';
 import { Subject } from 'rxjs';
+import { User } from 'src/app/models/user.model';
+import { UserService } from 'src/app/services/user.service';
+import { AlertTrueComponent } from './alert-true/alert-true.component';
+import { AlertFalseComponent } from './alert-false/alert-false.component';
 
 
 
@@ -49,25 +57,89 @@ export class AddUserComponent implements OnInit {
   // selectedValue = };
   matcher = new MyErrorStateMatcher();
   form: FormGroup = new FormGroup({
-    idNumber:new FormControl('idNumber', [Validators.required]),
-    email:new FormControl('email', [Validators.required, Validators.email]),
-    firstName:new FormControl('firstName', [Validators.required]),
-    lastName:new FormControl('lastName', [Validators.required]),
-    selectedValue:new FormControl('user kind',[Validators.required]),
+    idNumber: new FormControl('', [Validators.required]),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    firstName: new FormControl('', [Validators.required]),
+    lastName: new FormControl('', [Validators.required]),
+    selectedValue: new FormControl('', [Validators.required]),
     tel: new FormControl(new MyTel('', '', '')),
-   
+    userType: new FormControl('', Validators.required),
+    password: new FormControl('', Validators.required)
   });
   //  op: new FormControl('', Validators.required)
-
+  hhh = false;
   options: string[] = [
     "manager", "doctor", "lab", "patient"
   ];
 
-  constructor() { }
+  constructor(public dialogRef: MatDialogRef<AddUserComponent>, private _elementRef: ElementRef<HTMLElement>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData, private _userService: UserService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
 
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+  stateChanges = new Subject<void>();
+  focused = false;
+  touched = false;
+  onChange = (_: any) => { };
+  onTouched = () => { };
+
+  onFocusOut(event: FocusEvent) {
+    if (!this._elementRef.nativeElement.contains(event.relatedTarget as Element)) {
+      this.touched = true;
+      this.focused = false;
+      this.onTouched();
+      this.stateChanges.next();
+    }
+  }
+  u: User;
+  id: number;
+  fName: string;
+  lName: string;
+  tel: string;
+  email: string;
+  pass: string;
+  userType: number;
+  addUser() {
+    this.id = this.form.get('idNumber').value;
+    this.fName = this.form.get('firstName').value;
+    this.lName = this.form.get('lastName').value;
+    this.tel = this.form.get('tel').value.area + '' + this.form.get('tel').value.exchange + '' + this.form.get('tel').value.subscriber;
+    this.email = this.form.get('email').value;
+    this.pass = this.form.get('password').value;
+    this.userType = this.form.get('userType').value;
+
+    this.u = new User(this.id, this.fName, this.lName, this.userType, this.email, this.tel, this.pass);
+    this._userService.addUser(this.u).subscribe(t => {
+      if (t) {
+        this.hhh = true;
+        this.openDialog(true);
+
+      } else { this.hhh = true; this.openDialog(false); }
+    });
+  }
+
+  success: boolean = true;
+  failed: boolean = true;
+  openDialog(status: boolean): void {
+    if (status == true) {
+      const dialogRef = this.dialog.open(AlertTrueComponent, {
+        width: '30%',
+        height: '80%',
+        data: {},
+      });
+    }
+    else {
+      const dialogRef = this.dialog.open(AlertFalseComponent, {
+        width: '30%',
+        height: '80%',
+        data: {}
+      })
+    }
+  }
 }
 
 

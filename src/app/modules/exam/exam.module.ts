@@ -15,6 +15,8 @@ import {MatInputModule} from '@angular/material/input';
 import { ByDoctorIdComponent } from './by-doctor-id/by-doctor-id.component';
 import { ByLabIdComponent } from './by-lab-id/by-lab-id.component';
 import { AddExanComponent } from './add-exan/add-exan.component';
+import { FileUploadModule } from 'ng2-file-upload';
+import {ButtonModule} from 'primeng/button';
 
 
 
@@ -37,7 +39,7 @@ const routes: Routes = [
     ByPatientIdComponent,
     ByDoctorIdComponent,
     ByLabIdComponent,
-    AddExanComponent
+    AddExanComponent,
   ],
   imports: [
     CommonModule,
@@ -51,7 +53,9 @@ const routes: Routes = [
     MatNativeDateModule,
     ReactiveFormsModule,
     MatInputModule,
-    MatTabsModule
+    MatTabsModule,
+    FileUploadModule,
+    ButtonModule
   ],
   exports: [
     ByPatientIdComponent
@@ -64,6 +68,4 @@ const routes: Routes = [
   ]
 
 })
- 
-
 export class ExamModule { }

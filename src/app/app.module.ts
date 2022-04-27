@@ -29,14 +29,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AddExanComponent } from './modules/exam/add-exan/add-exan.component';
 import { CloudinaryModule } from '@cloudinary/angular-5.x';
 import { AddExam2Component } from './modules/exam/add-exan/add-exam2/add-exam2.component';
-
-
-
-
+import { ManagerComponent } from './manager/manager.component';
+import {MatDialogModule } from '@angular/material/dialog'
 
 const routes: Routes = [
-  {path: "", pathMatch: "full", redirectTo: "user"}, 
-  {path: 'user', component: LogInComponent},
+  { path: "", pathMatch: "full", redirectTo: "user" },
+  { path: 'user', component: LogInComponent },
   { path: 'patient', component: ByPatientIdComponent },
   { path: 'patient/:id', component: ByPatientIdComponent },
   { path: 'doctor', component: ByDoctorIdComponent },
@@ -44,8 +42,9 @@ const routes: Routes = [
   { path: 'lab', component: ByLabIdComponent },
   { path: 'pass', component: ResetPasswordComponent },
   { path: 'add user', component: AddUserComponent },
-  {path:'addExam',component:AddExam2Component},
-  {path: 'addpatient', component:AddPatientComponent}
+  { path: 'addExam', component: AddExam2Component },
+  { path: 'addpatient', component: AddPatientComponent },
+  {path:'manager',component:ManagerComponent}
   // {path:'manager/:id',component:ByDoctorIdComponent}
   //loadChildren: () => import('./modules/exam/exam.module').then(m => m.ExamModule)
 
@@ -55,10 +54,11 @@ const routes: Routes = [
     AppComponent,
     AddPatientComponent,
     AddExam2Component,
+    ManagerComponent,
 
   ],
   imports: [
-  AppRoutingModule,
+    AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
@@ -73,10 +73,11 @@ const routes: Routes = [
     MatListModule,
     MatStepperModule,
     MatInputModule,
-    ExamModule,
-    UserModule,
     ReactiveFormsModule,
     CloudinaryModule,
+    MatDialogModule,
+    // ExamModule,
+    // UserModule,
     RouterModule.forRoot(routes)
   ],
 
@@ -84,7 +85,7 @@ const routes: Routes = [
   providers: [
     { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } },
     UserService],
-  
+
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
   ],
