@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
+import { Router } from '@angular/router';
 import { Examination } from 'src/app/models/examinations.model';
 import { ExamService } from 'src/app/services/exam.service';
 
@@ -32,7 +33,7 @@ export class ByLabIdComponent implements OnInit {
   displayedColumns: string[] = ['index', 'examDate', 'computerDiagnosis', 'computerComments','probability','linkToPicture'];
   
 
-  constructor(private examService:ExamService) { 
+  constructor(private examService:ExamService, private router: Router) { 
   }
 
   applyFilter(event: Event) {
@@ -50,6 +51,14 @@ export class ByLabIdComponent implements OnInit {
        this.dataSource = new MatTableDataSource(this.examinations);
       }
     });
+  }
+
+  addExam(){
+    debugger;
+    this.router.navigate(['/addExam']);
+  }
+  addImg(_imgSrc:ImageSnippet){
+
   }
 
 }
