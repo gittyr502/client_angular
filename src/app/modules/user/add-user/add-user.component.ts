@@ -128,14 +128,14 @@ export class AddUserComponent implements OnInit {
     if (status == true) {
       const dialogRef = this.dialog.open(AlertTrueComponent, {
         width: '30%',
-        height: '80%',
+        height: '20%',
         data: {},
       });
     }
     else {
       const dialogRef = this.dialog.open(AlertFalseComponent, {
         width: '30%',
-        height: '80%',
+        height: '20%',
         data: {}
       })
     }

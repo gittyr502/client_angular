@@ -1,6 +1,7 @@
 import { NgClass } from '@angular/common';
 import { Component, forwardRef, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, NgControl, NG_VALUE_ACCESSOR, Validators } from '@angular/forms';
+import { patientDTO } from 'src/app/models/patientDTO.models';
 import { User } from 'src/app/models/user.model';
 import { UserService } from 'src/app/services/user.service';
 
@@ -17,7 +18,7 @@ export class AddPatientComponent implements OnInit {
   hmo: string[] = ["mehuchedet", "leumit", "klalit", "makabi"];
   selectedHMO:any;
 
-  addPatientForm: FormGroup = new FormGroup({
+  form: FormGroup = new FormGroup({
     user: new FormControl(),
     idNumber: new FormControl(),
     medicalInformation: new FormControl(),
@@ -36,6 +37,8 @@ export class AddPatientComponent implements OnInit {
     HMO: ['', Validators.required]
   })
 
+
+
   user1 = this.addPatient.get('user1');
 
 
@@ -51,7 +54,15 @@ export class AddPatientComponent implements OnInit {
     })
   }
 
-  addUser(): void {
+  p:patientDTO;
+  id:string;
+  userId:number;
+  birthDate:Date;
+  fName:string;
+  lName:string;
+  email:string;
+  password:string;
+  add_patient(): void {
 
   }
 

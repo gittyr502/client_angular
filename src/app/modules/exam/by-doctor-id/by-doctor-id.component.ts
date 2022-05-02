@@ -1,9 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Examination } from 'src/app/models/examinations.model';
 import { ExamService } from 'src/app/services/exam.service';
+import { AddPatientComponent } from '../../user/add-patient/add-patient.component';
 import { ExamModule } from '../exam.module';
 
 
@@ -15,7 +17,7 @@ import { ExamModule } from '../exam.module';
 export class ByDoctorIdComponent implements OnInit {
 
 
-  constructor(private examService: ExamService, private _acr: ActivatedRoute, private route: Router) { }
+  constructor(private examService: ExamService, private _acr: ActivatedRoute, private route: Router,private dialog: MatDialog) { }
   displayedColumns: string[] = ['index', 'examination date', 'patient id', 'labyrinth_comments', 'labyrinth_diagnosis', 'result', 'doctor_comments'
 
     //  'send message to patient'
@@ -55,7 +57,17 @@ export class ByDoctorIdComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
   navigator() {
-    debugger;
-    this.route.navigate(['/' + this.activeLink]);
+
+    if (this.activeLink == 'add user') {
+      this.openDialog();
+      }
+      this.route.navigate(['/' + this.activeLink]);
+    }
+
+    openDialog(): void {
+      const dialogRef = this.dialog.open(AddPatientComponent, {
+        width: '30%',
+        height: '80%',
+        data: {},
+      });}
   }
-}

@@ -1,15 +1,16 @@
 <!-- <p>add-patient works!</p> -->
 <div mat-dialog-content>
-    <form [formGroup]="addPatientForm">
-        <mat-label>Select user</mat-label>
-        <mat-select [value]="selected" formControlName="user">
-            <mat-option>choose value</mat-option>
+    <form class="example-form" [formGroup]="form">
+        <p>
+            <mat-label>Select user</mat-label>
+            <mat-select [value]="selected" formControlName="user">
+                <mat-option>choose value</mat-option>
+                <mat-option *ngFor="let user of users" (click)="selected = user">
+                    {{user}}</mat-option>
+            </mat-select>
+        </p>
 
-            <mat-option *ngFor="let user of users" (click)="selected = user">
-                {{user}}</mat-option>
-        </mat-select>
-
-        <input type="text" id="login" class="fadeIn second" name="login" placeholder="user name" name="userName" formControlName="email" #id>
+        <!-- <input type="text" id="login" class="fadeIn second" name="login" placeholder="user name" name="userName" formControlName="email" #id> -->
         <!--TODO:-->
         <!-- <h5>Choose Birth Date</h5>
         <mat-form-field appearance="fill">
@@ -18,6 +19,10 @@
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
         </mat-form-field> -->
+
+
+
+
 
         <h5>medicalInformation</h5>
         <mat-form-field class="example-full-width" appearance="fill" formControlName="medicalInformation">
@@ -28,13 +33,12 @@
         <mat-label>Select HMO</mat-label>
         <mat-select [value]="selected" formControlName="user">
             <mat-option>choose value</mat-option>
-
             <mat-option *ngFor="let hmo1 of hmo" (click)="selectedHMO = hmo1">
                 {{hmo1}}</mat-option>
         </mat-select>
 
 
-
+        <button mat-raised-button color="primary" (click)="add_patient()">Save Patient</button>
     </form>
 
 </div>

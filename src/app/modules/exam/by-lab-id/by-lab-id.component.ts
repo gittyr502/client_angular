@@ -57,9 +57,10 @@ export class ByLabIdComponent implements OnInit {
     debugger;
     this.router.navigate(['/addExam']);
   }
-  addImg(_imgSrc:ImageSnippet){
+  // addImg(_imgSrc:ImageSnippet){
 
-  }
+  // }
 
 }
+
 
