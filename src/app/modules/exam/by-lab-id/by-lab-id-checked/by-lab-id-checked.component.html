@@ -1,3 +1,4 @@
+<p>by-lab-id-checked works!</p>
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
     <!-- Position Column -->
@@ -18,35 +19,28 @@
         <td mat-cell *matCellDef="let element"> {{element.doctorName}} </td>
     </ng-container>
 
-    <!-- computerDiagnosis Column
+    <!-- computerDiagnosis Column -->
     <ng-container matColumnDef="computerDiagnosis">
         <th mat-header-cell *matHeaderCellDef> computerDiagnosis </th>
         <td mat-cell *matCellDef="let element"> {{element.computerDiagnosis}} </td>
-    </ng-container> -->
+    </ng-container>
 
     <!-- computerComments Column -->
-    <!-- <ng-container matColumnDef="computerComments">
+    <ng-container matColumnDef="computerComments">
         <th mat-header-cell *matHeaderCellDef> computerComments </th>
         <td mat-cell *matCellDef="let element"> {{element.computerComments}} </td>
-    </ng-container> -->
+    </ng-container>
 
     <!-- probability Column -->
-    <!-- <ng-container matColumnDef="probability">
+    <ng-container matColumnDef="probability">
         <th mat-header-cell *matHeaderCellDef> probability </th>
         <td mat-cell *matCellDef="let element"> {{element.probability}} </td>
-    </ng-container> -->
+    </ng-container>
 
     <!-- linkToPicture Column -->
-    <!-- <ng-container matColumnDef="linkToPicture">
+    <ng-container matColumnDef="linkToPicture">
         <th mat-header-cell *matHeaderCellDef> linkToPicture </th>
         <td mat-cell *matCellDef="let element"> {{element.linkToPicture}} </td>
-    </ng-container> -->
-
-    <ng-container matColumnDef="addPicture">
-        <th mat-header-cell *matHeaderCellDef> add picture </th>
-        <td mat-cell>
-            <button>upload picture</button>
-        </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

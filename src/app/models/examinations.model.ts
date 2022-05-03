@@ -1,6 +1,7 @@
 export class Examination {
   id: number;
   patientId: number;
+  doctorName:string="";
   examinationDate: Date;
   doctorId: number;
   computerDiagnosis: boolean;

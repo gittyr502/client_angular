@@ -23,6 +23,11 @@ export class ExamService {
     return this._http.get<any>(this.baseURL+'GetAllExam');
   }
 
+  getDoctorNameByDoctorId(id:number):Observable<string>{
+    return this._http.get<any>('http://localhost:21757/api/exam/'+'getDoctorNameById/'+id);
+    
+  }
+
   }
 
 
