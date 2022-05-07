@@ -47,26 +47,21 @@ export class ByLabIdComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
-
-
-    this.examService.getExamsLab(this.id).subscribe(data => {
+    this.examService.getExamsLab(this.id).subscribe(data=>{
       if (data) {
-        this.examinations = data;
-        this.examinations.forEach(element => {
-          element.doctorName = this.getValue(element.doctorId);
+        this.examinations=data;
+        this.examinations.forEach(el=>{
+          el.doctorName=this.getValue(el.doctorId);
         })
-      };
+      this.dataSource=new MatTableDataSource(this.examinations);
+      }
+    })
+  }
 
-      this.dataSource = new MatTableDataSource(this.examinations);
-    }
-  
-
-
-addExam() {
-      debugger;
-      this.router.navigate(['/addExam']);
-    }
+  addExam(): void {
+    debugger;
+    this.router.navigate(['/addExam']);
+  }
   // addImg(_imgSrc:ImageSnippet){
 
   // }
@@ -74,4 +69,3 @@ addExam() {
 }
 
 
-}

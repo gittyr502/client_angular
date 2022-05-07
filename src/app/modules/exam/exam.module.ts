@@ -17,9 +17,6 @@ import { ByLabIdComponent } from './by-lab-id/by-lab-id.component';
 import { AddExanComponent } from './add-exan/add-exan.component';
 import { FileUploadModule } from 'ng2-file-upload';
 import {ButtonModule} from 'primeng/button';
-import { ByLabIdCheckedComponent } from './by-lab-id/by-lab-id-checked/by-lab-id-checked.component';
-
-
 
 const routes: Routes = [
   {
@@ -40,8 +37,7 @@ const routes: Routes = [
     ByPatientIdComponent,
     ByDoctorIdComponent,
     ByLabIdComponent,
-    AddExanComponent,
-    ByLabIdCheckedComponent
+    AddExanComponent
   ],
   imports: [
     CommonModule,

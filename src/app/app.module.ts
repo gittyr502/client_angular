@@ -31,7 +31,6 @@ import { CloudinaryModule } from '@cloudinary/angular-5.x';
 import { AddExam2Component } from './modules/exam/add-exan/add-exam2/add-exam2.component';
 import { ManagerComponent } from './manager/manager.component';
 import {MatDialogModule } from '@angular/material/dialog';
-import { ByLabIdCheckedComponent } from './modules/exam/by-lab-id/by-lab-id-checked/by-lab-id-checked.component'
 
 const routes: Routes = [
   { path: "", pathMatch: "full", redirectTo: "user" },
@@ -55,9 +54,7 @@ const routes: Routes = [
     AppComponent,
     AddPatientComponent,
     AddExam2Component,
-    ManagerComponent,
-    ByLabIdCheckedComponent,
-
+    ManagerComponent
   ],
   imports: [
     AppRoutingModule,
