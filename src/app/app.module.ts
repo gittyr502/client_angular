@@ -26,11 +26,13 @@ import { AddUserComponent } from './modules/user/add-user/add-user.component';
 import { AddPatientComponent } from './modules/user/add-patient/add-patient.component';
 import { LogInComponent } from './modules/user/log-in/log-in.component';
 import { AppRoutingModule } from './app-routing.module';
-import { AddExanComponent } from './modules/exam/add-exan/add-exan.component';
+// import { AddExanComponent } from './modules/exam/add-exan/add-exan.component';
+import { AddExanComponent } from './modules/exam/add-exan copy/add-exan.component';
 import { CloudinaryModule } from '@cloudinary/angular-5.x';
 import { AddExam2Component } from './modules/exam/add-exan/add-exam2/add-exam2.component';
 import { ManagerComponent } from './manager/manager.component';
 import {MatDialogModule } from '@angular/material/dialog';
+
 
 const routes: Routes = [
   { path: "", pathMatch: "full", redirectTo: "user" },
@@ -42,7 +44,7 @@ const routes: Routes = [
   { path: 'lab', component: ByLabIdComponent },
   { path: 'pass', component: ResetPasswordComponent },
   { path: 'add user', component: AddUserComponent },
-  { path: 'addExam', component: AddExam2Component },
+  { path: 'addExam', component: AddExanComponent },
   { path: 'addpatient', component: AddPatientComponent },
   {path:'manager',component:ManagerComponent}
   // {path:'manager/:id',component:ByDoctorIdComponent}
