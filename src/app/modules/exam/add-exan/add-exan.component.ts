@@ -6,9 +6,10 @@ import { Cloudinary } from '@cloudinary/angular-5.x';
 import { HttpClient } from '@angular/common/http';
 
 import {  UserService } from 'src/app/services/user.service';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserDTO } from 'src/app/models/userDTO.models';
 import { Router } from '@angular/router';
+import { PatientService } from 'src/app/services/patient.service';
 
 @Component({
   selector: 'app-add-exan',
@@ -79,17 +80,34 @@ export class AddExanComponent implements OnInit {
 
   hide = true;
   
-  loginForm: FormGroup = new FormGroup({
-    email: new FormControl(),
-    password: new FormControl(),
-  });
-  userDTO!: UserDTO;
+  // loginForm: FormGroup = new FormGroup({
+  //   email: new FormControl(),
+  //   password: new FormControl(),
+  // });
 
-  constructor(private _loginService: UserService, private router: Router) { }
+  userDTO!: UserDTO;
+  patientIds!:string[];
+  selectedPatient!:string;
+
+  constructor(private _loginService: UserService, private router: Router,private _patientService:PatientService) { }
 
   ngOnInit(): void {
     this.userDTO = new UserDTO();
+    this._patientService.getAllPatientsId().subscribe(data=>{
+      if (data) {
+        this.patientIds=data;
+      }
+    })
   }
+
+  addExamForm:FormGroup=new FormGroup({
+    patientId:new FormControl('',Validators.required),
+  })
+
+
+
+
+
   LogIn(id: string, password: string) {
     this.userDTO.id = id;
     this.userDTO.password = password;

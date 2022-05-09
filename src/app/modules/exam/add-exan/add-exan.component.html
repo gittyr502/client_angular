@@ -1,4 +1,4 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
@@ -7,34 +7,47 @@
     <div id="formContent">
         <!-- Tabs Titles -->
 
-        <!-- Icon -->
-        <div class="fadeIn first">
+<!-- Icon -->
+<!-- <div class="fadeIn first">
             <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />
-        </div>
+        </div> -->
 
-        <!-- Login Form -->
-        <form [formGroup]="loginForm">
-            <input type="text" id="login" class="fadeIn second" name="login" placeholder="user name" name="userName" formControlName="email" #id>
+<!-- Login Form -->
+<!-- <form [formGroup]="loginForm">
+            <input type="text" id="login" class="fadeIn second" name="login" placeholder="user name" name="userName" formControlName="email" #id> -->
 
-            <!-- <input type="text" id="password" class="fadeIn third" name="login" > -->
+<!-- <input type="text" id="password" class="fadeIn third" name="login" > -->
 
 
-            <!-- <mat-label>Enter your password</mat-label> -->
-            <input id="password" class="fadeIn third" name="login" placeholder="password" formControlName="password" #password matInput [type]="hide ? 'password' : 'text'">
+<!-- <mat-label>Enter your password</mat-label> -->
+<!-- <input id="password" class="fadeIn third" name="login" placeholder="password" formControlName="password" #password matInput [type]="hide ? 'password' : 'text'">
             <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
       </button>
 
 
             <input type="submit" class="fadeIn fourth" value="Log In" (click)="LogIn(id.value,password.value)">
-        </form>
+        </form> -->
 
-        <!-- Remind Passowrd -->
-        <div id="formFooter">
+<!-- Remind Passowrd -->
+<!-- <div id="formFooter">
             <a class="underlineHover" href="pass">Forgot Password?</a>
         </div>
 
     </div>
-</div>
+</div> -->
+
+
+<form [formGroup]="addExamForm">
+    <mat-form-field appearance="fill">
+        <mat-label>Favorite food</mat-label>
+        <mat-select [(ngModel)]="selectedPatient" name="food">
+            <mat-option *ngFor="let id of patientIds" [value]="id">
+                {{id}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <p> Selected food: {{selectedPatient}} </p>
+</form>
 
 
 
