@@ -31,7 +31,7 @@ import { AddExanComponent } from './modules/exam/add-exan copy/add-exan.componen
 import { CloudinaryModule } from '@cloudinary/angular-5.x';
 import { AddExam2Component } from './modules/exam/add-exan/add-exam2/add-exam2.component';
 import { ManagerComponent } from './manager/manager.component';
-import {MatDialogModule } from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 const routes: Routes = [
@@ -46,7 +46,7 @@ const routes: Routes = [
   { path: 'add user', component: AddUserComponent },
   { path: 'addExam', component: AddExanComponent },
   { path: 'addpatient', component: AddPatientComponent },
-  {path:'manager',component:ManagerComponent}
+  { path: 'manager', component: ManagerComponent }
   // {path:'manager/:id',component:ByDoctorIdComponent}
   //loadChildren: () => import('./modules/exam/exam.module').then(m => m.ExamModule)
 
@@ -56,7 +56,8 @@ const routes: Routes = [
     AppComponent,
     AddPatientComponent,
     AddExam2Component,
-    ManagerComponent
+    ManagerComponent,
+    AddExanComponent
   ],
   imports: [
     AppRoutingModule,

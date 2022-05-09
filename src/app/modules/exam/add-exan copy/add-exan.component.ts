@@ -2,7 +2,7 @@
 import { Component, OnInit, Input, NgZone } from '@angular/core';
 
 import { FileUploader, FileUploaderOptions, ParsedResponseHeaders } from 'ng2-file-upload';
-
+import { FormBuilder } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ExamService } from 'src/app/services/exam.service';
@@ -23,65 +23,70 @@ export class AddExanComponent implements OnInit {
   private uploader: FileUploader;
   private title: string;
   imageSrc: string;
-  myForm = new FormGroup({
-    name: new FormControl('', [Validators.required, Validators.minLength(3)]),
-    file: new FormControl('', [Validators.required]),
-    fileSource: new FormControl('', [Validators.required])
-  });
+  // myForm = new FormGroup({
+  //   name: new FormControl('', [Validators.required, Validators.minLength(3)]),
+  //   file: new FormControl('', [Validators.required]),
+  //   fileSource: new FormControl('', [Validators.required])
+  // });
+  myForm: FormGroup;
 
-  examForm=new FormGroup({
-    
+  examForm = new FormGroup({
   })
   selectedFile: any;
-  constructor(private zone: NgZone, private http: HttpClient, private _examService:ExamService,
-    private _pictureService:PictureService) {
+  constructor(private zone: NgZone, private http: HttpClient, private _examService: ExamService,
+    private _pictureService: PictureService, private fb: FormBuilder) {
     this.responses = [];
     this.title = '';
+    this.myForm = new FormGroup({
+      name: new FormControl(),
+      file: new FormControl(),
+      fileSource: new FormControl()
+    })
   }
 
   ngOnInit(): void {
 
- // Create the file uploader, wire it to upload to your account
-  const uploaderOptions: FileUploaderOptions = {
-    // url: `https://api.cloudinary.com/v1_1/${this.cloudinary.config().cloud_name}/upload`,
-    url:`https://api.cloudinary.com/v1_1/CLOUD_NAME/upload`,
-    // Upload files automatically upon addition to upload queue
-    autoUpload: true,
-    // Use xhrTransport in favor of iframeTransport
-    isHTML5: true,
-    // Calculate progress independently for each uploaded file
-    removeAfterUpload: true,
-    // XHR request headers
-    headers: [
-      {
-        name: 'X-Requested-With',
-        value: 'XMLHttpRequest'
-      }
-    ]
-  };
+    // Create the file uploader, wire it to upload to your account
+    const uploaderOptions: FileUploaderOptions = {
+      // url: `https://api.cloudinary.com/v1_1/${this.cloudinary.config().cloud_name}/upload`,
+      url: `https://api.cloudinary.com/v1_1/CLOUD_NAME/upload`,
+      // Upload files automatically upon addition to upload queue
+      autoUpload: true,
+      // Use xhrTransport in favor of iframeTransport
+      isHTML5: true,
+      // Calculate progress independently for each uploaded file
+      removeAfterUpload: true,
+      // XHR request headers
+      headers: [
+        {
+          name: 'X-Requested-With',
+          value: 'XMLHttpRequest'
+        }
+      ]
+    };
 
-  this.uploader = new FileUploader(uploaderOptions);
+    this.uploader = new FileUploader(uploaderOptions);
 
-  this.uploader.onBuildItemForm = (fileItem: any, form: FormData): any => {
-    // Add Cloudinary unsigned upload preset to the upload form
-    // form.append('upload_preset', this.cloudinary.config().upload_preset);
-    form.append('upload_preset', 'PRESET_NAME');
+    this.uploader.onBuildItemForm = (fileItem: any, form: FormData): any => {
+      // Add Cloudinary unsigned upload preset to the upload form
+      // form.append('upload_preset', this.cloudinary.config().upload_preset);
+      form.append('upload_preset', 'PRESET_NAME');
 
-    // Add file to upload
-    form.append('file', fileItem);
+      // Add file to upload
+      form.append('file', fileItem);
 
-    // Use default "withCredentials" value for CORS requests
-    fileItem.withCredentials = false;
-    return { fileItem, form };
-  };
-}
+      // Use default "withCredentials" value for CORS requests
+      fileItem.withCredentials = false;
+      return { fileItem, form };
+    };
+  }
 
 
 
   fileOverBase(e: any): void {
     this.hasBaseDropZoneOver = e;
   }
-  onFileChange(event:any) {
+  onFileChange(event: any) {
     const reader = new FileReader();
 
     if (event.target.files && event.target.files.length) {
@@ -103,8 +108,9 @@ export class AddExanComponent implements OnInit {
   }
 
   submit() {
+    debugger;
     console.log(this.myForm.value);
-    let exam = new Examination(1,1,new Date(),1,true,this.myForm.value.file,true,'a','a',1);
+    let exam = new Examination(1, 1, new Date(), 1, true, this.myForm.value.file, true, 'a', 'a', 1);
     //postImage.fileName = this.myForm.value.file;
     //postImage.binaryData = this.myForm.value.fileSource;
 
@@ -112,7 +118,7 @@ export class AddExanComponent implements OnInit {
       .subscribe(res => {
         console.log(res);
         alert('Uploaded Successfully.');
-     //   this._examService.setReloadFlag(true);
+        //   this._examService.setReloadFlag(true);
       },
         error => {
           let errorMsg: string;
