@@ -27,11 +27,12 @@ import { AddPatientComponent } from './modules/user/add-patient/add-patient.comp
 import { LogInComponent } from './modules/user/log-in/log-in.component';
 import { AppRoutingModule } from './app-routing.module';
 // import { AddExanComponent } from './modules/exam/add-exan/add-exan.component';
-import { AddExanComponent } from './modules/exam/add-exan copy/add-exan.component';
+// import { AddExanComponent } from './modules/exam/add-exan copy/add-exan.component';
 import { CloudinaryModule } from '@cloudinary/angular-5.x';
 import { AddExam2Component } from './modules/exam/add-exan/add-exam2/add-exam2.component';
 import { ManagerComponent } from './manager/manager.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import {AddExanComponent} from './modules/exam/add-exan/add-exan.component';
 
 
 const routes: Routes = [
@@ -44,9 +45,10 @@ const routes: Routes = [
   { path: 'lab', component: ByLabIdComponent },
   { path: 'pass', component: ResetPasswordComponent },
   { path: 'add user', component: AddUserComponent },
-  { path: 'addExam', component: AddExanComponent },
+  { path: 'upload', component: AddExanComponent },
   { path: 'addpatient', component: AddPatientComponent },
-  { path: 'manager', component: ManagerComponent }
+  { path: 'manager', component: ManagerComponent },
+  {path:'addExam',component:AddExanComponent}
   // {path:'manager/:id',component:ByDoctorIdComponent}
   //loadChildren: () => import('./modules/exam/exam.module').then(m => m.ExamModule)
 
@@ -57,7 +59,7 @@ const routes: Routes = [
     AddPatientComponent,
     AddExam2Component,
     ManagerComponent,
-    AddExanComponent
+    // AddExanComponent
   ],
   imports: [
     AppRoutingModule,

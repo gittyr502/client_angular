@@ -28,6 +28,15 @@ export class ExamService {
     
   }
 
+  addExam(exam:Examination):Observable<any>{
+    return this._http.post<any>(this.baseURL+'Post/'+exam,null);
+    // return this._http.post<any>('/api?data='+exam,null);
+  }
+
+  // addExam(exam:Examination):Observable<any>{
+  //   // return this._http.post<any>(this.baseURL+exam);
+  // }
+
   }
 
 

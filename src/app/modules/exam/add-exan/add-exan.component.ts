@@ -10,6 +10,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserDTO } from 'src/app/models/userDTO.models';
 import { Router } from '@angular/router';
 import { PatientService } from 'src/app/services/patient.service';
+import { Examination } from 'src/app/models/examinations.model';
+import { ExamService } from 'src/app/services/exam.service';
 
 @Component({
   selector: 'app-add-exan',
@@ -88,8 +90,9 @@ export class AddExanComponent implements OnInit {
   userDTO!: UserDTO;
   patientIds!:string[];
   selectedPatient!:string;
-
-  constructor(private _loginService: UserService, private router: Router,private _patientService:PatientService) { }
+  date!:Date;
+  exam!:Examination;
+  constructor( private router: Router,private _patientService:PatientService,private _examService:ExamService) { }
 
   ngOnInit(): void {
     this.userDTO = new UserDTO();
@@ -97,41 +100,20 @@ export class AddExanComponent implements OnInit {
       if (data) {
         this.patientIds=data;
       }
-    })
+    });
+  }
+
+  sendExam():void{
+    this.date=new Date();
+    var patient=Number(this.selectedPatient);
+    this.exam=new Examination(null,patient,this.date,null,null,null,null,null,null,null);
+    this._examService.addExam(this.exam);
+
   }
 
   addExamForm:FormGroup=new FormGroup({
     patientId:new FormControl('',Validators.required),
   })
-
-
-
-
-
-  LogIn(id: string, password: string) {
-    this.userDTO.id = id;
-    this.userDTO.password = password;
-    this._loginService.getUser(this.userDTO).subscribe(data => {
-      if (data) {
-        this._loginService.userId=data.id;
-        console.log("hello" + " " + data.firstName + " " + data.lastName);
-        if (data.userKindId == 4) {
-          this.router.navigate(['/patient', { id: data.id }]);
-        }
-        if (data.userKindId == 1) {
-          this.router.navigate(['/manager', { id: data.id }]);
-        }
-        if (data.userKindId == 2) {
-          this.router.navigate(['/doctor', { id: data.id }]);
-        }
-        if (data.userKindId == 3) {
-          this.router.navigate(['/lab', { id: data.id }]);
-        }
-
-      }
-      else { console.log("no such user"); }
-    });
-  }
 }
 
 
