@@ -29,7 +29,7 @@ import { AppRoutingModule } from './app-routing.module';
 // import { AddExanComponent } from './modules/exam/add-exan/add-exan.component';
 // import { AddExanComponent } from './modules/exam/add-exan copy/add-exan.component';
 import { CloudinaryModule } from '@cloudinary/angular-5.x';
-import { AddExam2Component } from './modules/exam/add-exan/add-exam2/add-exam2.component';
+
 import { ManagerComponent } from './manager/manager.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import {AddExanComponent} from './modules/exam/add-exan/add-exan.component';
@@ -57,7 +57,7 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     AddPatientComponent,
-    AddExam2Component,
+  
     ManagerComponent,
     // AddExanComponent
   ],

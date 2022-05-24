@@ -63,25 +63,29 @@ export class ByDoctorIdComponent implements OnInit {
       this.addUser();
     }
 
-    if (this.activeLink == 'add exam') {
+   else if (this.activeLink == 'add exam') {
       this.addExam();
     }
-    this.route.navigate(['/' + this.activeLink]);
+    else this.route.navigate(['/' + this.activeLink]);
   }
 
   addUser(): void {
-    const dialogRef = this.dialog.open(AddPatientComponent, {
-      width: '100%',
-      height: '100%',
-      data: {},
-    });
+    const dialogRef = this.dialog.open(AddPatientComponent
+    //   , {
+    //   width: '100%',
+    //   height: '100%',
+    //   data: {},
+    // }
+    );
   }
 
   addExam(): void {
-    const dialogRef = this.dialog.open(AddExanComponent, {
-      width: '30%',
-      height: '80%',
-      data: {},
-    })
+    const dialogRef = this.dialog.open(AddExanComponent
+    //   , {
+    //   width: '30%',
+    //   height: '80%',
+    //   data: {},
+    // }
+    )
   }
 }
