@@ -52,7 +52,6 @@ export class AddExanComponent implements OnInit {
   }
 
   onNoClick(): void {
-    debugger;
     this.dialogRef.close();
   }
   sendExam():void{

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 
 import { ByDoctorIdComponent } from './by-doctor-id/by-doctor-id.component';
 import { ByLabIdComponent } from './by-lab-id/by-lab-id.component';
@@ -32,8 +32,12 @@ const routes: Routes = [
     MaterialModule
   ],
   exports: [
-   
-  ]
-
+    ByDoctorIdComponent,
+  ByLabIdComponent,
+  ByPatientIdComponent,
+  AddExanComponent
+  ],
+  
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ExamModule { }

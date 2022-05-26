@@ -19,4 +19,7 @@ export class PatientService {
   getAllPatientsId(): Observable<string[]> {
     return this._http.get<any>(this.baseURL+"GetAllPatientsIds");
   }
+  addPatient(p:Patient ){
+    return this._http.post<Patient>(this.baseURL,p);
+  }
 }

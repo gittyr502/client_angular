@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -12,7 +12,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatFormFieldModule, MatLabel, MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatRadioModule } from '@angular/material/radio';
 import {MatSelectModule} from '@angular/material/select';
@@ -20,7 +20,7 @@ import {MatDividerModule} from '@angular/material/divider';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list'; 
 import {MatTooltipModule} from '@angular/material/tooltip';
-
+import { FormsModule } from '@angular/forms'
 
 @NgModule({
   declarations: [
@@ -49,9 +49,9 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     MatDividerModule,
     MatDividerModule,
     MatListModule,
-    MatTooltipModule
-
-  ],
+    MatTooltipModule,
+    MatFormFieldModule,
+    FormsModule ],
   exports:[
     MatInputModule,
     MatButtonModule,
@@ -75,9 +75,13 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     MatDividerModule,
     MatSidenavModule,
     MatListModule,
-    MatTooltipModule
-
+    MatTooltipModule,
+    MatFormFieldModule,
+    FormsModule
   ]
-
+  // providers: [{ 
+  //   provide: ng MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } 
+  // }],
+  // schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class MaterialModule { }

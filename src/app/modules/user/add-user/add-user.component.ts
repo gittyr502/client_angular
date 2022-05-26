@@ -68,8 +68,11 @@ export class AddUserComponent implements OnInit {
   });
   //  op: new FormControl('', Validators.required)
   hhh = false;
-  options: string[] = [
-    "manager", "doctor", "lab", "patient"
+  options = [
+   { id: 1, kind:"manager"},
+   {id:2, kind:"doctor"},
+   {id:3, kind:"lab"}, 
+   {id:4, kind:"patient"}
   ];
 
   constructor(public dialogRef: MatDialogRef<AddUserComponent>, private _elementRef: ElementRef<HTMLElement>,
@@ -103,6 +106,7 @@ export class AddUserComponent implements OnInit {
   email: string;
   pass: string;
   userType: number;
+  
   addUser() {
     this.id = this.form.get('idNumber').value;
     this.fName = this.form.get('firstName').value;

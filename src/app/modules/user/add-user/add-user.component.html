@@ -60,10 +60,10 @@
     <mat-form-field appearance="fill">
         <mat-label>select user type</mat-label>
         <select matNativeControl   formControlName="userType" name="userType">
-            <option 
+            <option  
             *ngFor="let opt of options"
-             [value]="opt" >
-                {{opt}}
+             [value]="opt.id" >
+                {{opt.kind}}
             </option>
         </select>
     </mat-form-field>

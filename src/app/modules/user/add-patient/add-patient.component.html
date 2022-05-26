@@ -5,20 +5,17 @@
       
             <mat-form-field appearance="fill">
                 <mat-label>Select user</mat-label>
-                <select matNativeControl formControlName="user" [value]="selected" >
+                <select matNativeControl formControlName="user"  formControlName="user">
                     <option 
-                     *ngFor="let user of users" 
-                     [value]="user" selected>
-                        {{user}}
+                     *ngFor="let user of users"
+                     
+                     [value]="user.id" selected>
+                        {{user.firstName+ " "+ user.lastName}}
                     </option>
                 </select>
             </mat-form-field>
+            <button mat-raised-button color="primary" (click)="addUser()">add user</button>
             <br>
-
-            <mat-form-field class="example-full-width" appearance="fill" >
-                <mat-label>insert id</mat-label>
-                <input matInput placeholder="" formControlName="idNumber">
-            </mat-form-field>
   
         
             <mat-form-field appearance="fill" class="example-form-field">
@@ -37,18 +34,14 @@
 
         <br>
 
-        <mat-form-field class="example-full-width" appearance="fill" >
-            <mat-label>insert medicalInformation</mat-label>
-            <input matInput placeholder="" formControlName="medicalInformation">
-        </mat-form-field>
-        <br>
+       
             <mat-form-field appearance="fill">
                 <mat-label>Select HMO</mat-label>
                 <select matNativeControl  [value]="selected" formControlName="HMOId" name="patient">
                     <option 
-                    *ngFor="let hmo1 of hmo"
-                     [value]="hmo1" selectedHMO>
-                        {{hmo1}}
+                    *ngFor="let hmo1 of hmos"
+                     [value]="hmo1.id" selectedHMO>
+                        {{hmo1.hmo}}
                     </option>
                 </select>
             </mat-form-field>
