@@ -14,7 +14,8 @@ import { Examination } from 'src/app/models/examinations.model';
 import { ExamService } from 'src/app/services/exam.service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DialogData } from '../../user/add-user/add-user.component';
-
+import { User } from 'src/app/models/user.model';
+import { MatFormFieldControl } from '@angular/material/form-field';
 @Component({
   selector: 'app-add-exan',
   templateUrl: './add-exan.component.html',
@@ -22,12 +23,12 @@ import { DialogData } from '../../user/add-user/add-user.component';
  
 })
 export class AddExanComponent implements OnInit {
-  @Input()
-  responses: Array<any>;
+  // @Input()
+  // responses: Array<any>;
 
-  private hasBaseDropZoneOver: boolean = false;
-  private uploader: FileUploader;
-  private title: string;
+  // private hasBaseDropZoneOver: boolean = false;
+  // private uploader: FileUploader;
+  // private title: string;
   // addExamForm:FormGroup=new FormGroup({
   //   patientId:new FormControl('',Validators.required),
   // })
@@ -42,7 +43,8 @@ export class AddExanComponent implements OnInit {
 
   ngOnInit(): void {
     this.userDTO = new UserDTO();
-    this._patientService.getAllPatientsId().subscribe(data=>{
+  this._patientService.getAllPatientsId().subscribe((data: string[])=>{
+      debugger;
       if (data) {
         this.patientIds=data;
       }

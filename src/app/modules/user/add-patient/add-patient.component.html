@@ -1,42 +1,59 @@
 <!-- <p>add-patient works!</p> -->
 <div mat-dialog-content>
     <form class="example-form" [formGroup]="form">
-        <p>
-            <mat-label>Select user</mat-label>
-            <mat-select [value]="selected" formControlName="user">
-                <mat-option>choose value</mat-option>
-                <mat-option *ngFor="let user of users" (click)="selected = user">
-                    {{user}}</mat-option>
-            </mat-select>
-        </p>
+    
+      
+            <mat-form-field appearance="fill">
+                <mat-label>Select user</mat-label>
+                <select matNativeControl formControlName="user" [value]="selected" >
+                    <option 
+                     *ngFor="let user of users" 
+                     [value]="user" selected>
+                        {{user}}
+                    </option>
+                </select>
+            </mat-form-field>
+            <br>
 
-        <!-- <input type="text" id="login" class="fadeIn second" name="login" placeholder="user name" name="userName" formControlName="email" #id> -->
-        <!--TODO:-->
-        <!-- <h5>Choose Birth Date</h5>
-        <mat-form-field appearance="fill">
+            <mat-form-field class="example-full-width" appearance="fill" >
+                <mat-label>insert id</mat-label>
+                <input matInput placeholder="" formControlName="idNumber">
+            </mat-form-field>
+  
+        
+            <mat-form-field appearance="fill" class="example-form-field">
             <mat-label>Choose a date</mat-label>
-            <input matInput [matDatepicker]="picker">
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field> -->
+            <input matInput [matDatepicker]="datepicker" formControlName="birthDate">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+            <mat-datepicker #datepicker>
+              <mat-datepicker-actions>
+                <button mat-button matDatepickerCancel>Cancel</button>
+                <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+              </mat-datepicker-actions>
+            </mat-datepicker>
+          </mat-form-field>
 
 
+        <br>
 
-
-
-        <h5>medicalInformation</h5>
-        <mat-form-field class="example-full-width" appearance="fill" formControlName="medicalInformation">
+        <mat-form-field class="example-full-width" appearance="fill" >
             <mat-label>insert medicalInformation</mat-label>
-            <textarea matInput placeholder=""></textarea>
+            <input matInput placeholder="" formControlName="medicalInformation">
         </mat-form-field>
-
-        <mat-label>Select HMO</mat-label>
-        <mat-select [value]="selected" formControlName="user">
-            <mat-option>choose value</mat-option>
-            <mat-option *ngFor="let hmo1 of hmo" (click)="selectedHMO = hmo1">
-                {{hmo1}}</mat-option>
-        </mat-select>
-
+        <br>
+            <mat-form-field appearance="fill">
+                <mat-label>Select HMO</mat-label>
+                <select matNativeControl  [value]="selected" formControlName="HMOId" name="patient">
+                    <option 
+                    *ngFor="let hmo1 of hmo"
+                     [value]="hmo1" selectedHMO>
+                        {{hmo1}}
+                    </option>
+                </select>
+            </mat-form-field>
+            
+            <br>
 
         <button mat-raised-button color="primary" (click)="add_patient()">Save Patient</button>
     </form>

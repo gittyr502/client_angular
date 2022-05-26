@@ -72,8 +72,8 @@ export class ByDoctorIdComponent implements OnInit {
   addUser(): void {
     const dialogRef = this.dialog.open(AddPatientComponent
     //   , {
-    //   width: '100%',
-    //   height: '100%',
+    //   width: '30%',
+    //   height: '70%',
     //   data: {},
     // }
     );
@@ -81,11 +81,11 @@ export class ByDoctorIdComponent implements OnInit {
 
   addExam(): void {
     const dialogRef = this.dialog.open(AddExanComponent
-    //   , {
-    //   width: '30%',
-    //   height: '80%',
-    //   data: {},
-    // }
+      , {
+      width: '30%',
+      height: '80%',
+      data: {},
+    }
     )
   }
 }

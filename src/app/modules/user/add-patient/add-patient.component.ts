@@ -43,7 +43,7 @@ export class AddPatientComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this._userService.getAllUsers().subscribe(data => {
+    this._userService.getAllUsers().subscribe((data:User[]) => {
       this.temp = data;
       this.temp.forEach((element: any) => {
         if (element.userKindId == 4) {
@@ -63,8 +63,15 @@ export class AddPatientComponent implements OnInit {
   email:string;
   password:string;
   add_patient(): void {
+    this._userService.addUser(null).subscribe((num: number)=>
+      {if(num>0)
+      console.log("succes");
+      else console.log("failed");
+      }
+      )
 
-  }
+    }
+  
 
   changeUser(u: any) {
     this.user1?.setValue(u.target.value, {

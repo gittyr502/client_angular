@@ -54,39 +54,20 @@
             </mat-form-field>
         </p>
         <p>
-            <label>Select user type</label>
-            <br/>
-            <mat-button-toggle-group required name="user type" aria-label="user type" matFormFieldControl="userType" formControlName="userType" id="userType" name="userType">
-                <mat-button-toggle value="1">manager</mat-button-toggle>
-                <mat-button-toggle value="2">doctor</mat-button-toggle>
-                <mat-button-toggle value="3">labyrinth</mat-button-toggle>
-                <mat-button-toggle value="4">patient</mat-button-toggle>
-            </mat-button-toggle-group>
-            <br/> <br/>
-            <!--        
-        <mat-form-field appearance="fill"  matFormFieldControl="selectedValue">
-            <mat-label>select user kind</mat-label> 
-             <input matInput placeholder="Placeholder" > 
-           <select  name="op" id="op" > 
-             <option *ngFor="let op of options" >
-                {{op}}
+        
+    
+    <br>
+    <mat-form-field appearance="fill">
+        <mat-label>select user type</mat-label>
+        <select matNativeControl   formControlName="userType" name="userType">
+            <option 
+            *ngFor="let opt of options"
+             [value]="opt" >
+                {{opt}}
             </option>
-        </select> 
-        <input matInput placeholder="Placeholder" style="opacity: 0;">
-        </mat-form-field>  -->
-            <!-- [value]="op" -->
-            <!-- </p>
-     <p>
-    <mat-form-field appearance="fill"  matFormFieldControl="selectedValue">
-    <select>
-        <option *ngFor="let op of options">
-            {{op}}
-        </option>
-    </select>
+        </select>
     </mat-form-field>
-    </p> -->
-
-
+<br>
             <button mat-raised-button color="primary" (click)="addUser()">Save User</button>
     </form>
 

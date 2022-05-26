@@ -16,16 +16,15 @@ export class ManagerComponent implements OnInit {
   constructor(public dialog: MatDialog) { }
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(AddUserComponent, {
-      width: '30%',
-      height:'80%',
-      data: {},
-    });
+    const dialogRef = this.dialog.open(AddUserComponent
+    //   , {
+    //   width: '30%',
+    //   height:'80%',
+    //   data: {},
+    // }
+    );
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-     
-    });
+  
   }
 
 

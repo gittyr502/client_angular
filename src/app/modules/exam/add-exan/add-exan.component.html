@@ -57,7 +57,7 @@
 
 </mat-dialog-content>
 <div mat-dialog-actions>
-    <button mat-button (click)="onNoClick()">No Thanks</button>
+    <button  mat-dialog-close (click)="onNoClick()">No Thanks</button>
     <button mat-button (click)="sendExam()" cdkFocusInitial>Ok</button>
 </div>
 <!-- <mat-dialog-actions align="end">

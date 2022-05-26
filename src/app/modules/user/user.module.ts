@@ -6,27 +6,21 @@ import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { LogInComponent } from './log-in/log-in.component';
 import { RouterModule, Routes } from '@angular/router';
-import { ByPatientIdComponent } from '../exam/by-patient-id/by-patient-id.component';
-import { MatNativeDateModule, MatRippleModule } from '@angular/material/core';
-import { MatButton, MatButtonModule } from '@angular/material/button';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatIconModule } from '@angular/material/icon';
+import { ByPatientIdComponent } from '../exam/by-patient-id/by-patient-id.component'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
-import { MatTabsModule } from '@angular/material/tabs';
-import { MatSelectModule } from '@angular/material/select';
 
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { AddUserComponent } from './add-user/add-user.component';
 import { MyTelInput } from "./add-user/example-tel-input";
 import { CascadeSelectModule } from 'primeng/cascadeselect';
-import {MatDatepickerModule} from '@angular/material/datepicker';
+
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { AlertTrueComponent } from './add-user/alert-true/alert-true.component';
 import { AlertFalseComponent } from './add-user/alert-false/alert-false.component';
 
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 
 
@@ -50,15 +44,8 @@ import { AlertFalseComponent } from './add-user/alert-false/alert-false.componen
   declarations: [LogInComponent, ResetPasswordComponent, AddUserComponent, MyTelInput, AlertTrueComponent, AlertFalseComponent],
   imports: [
     CommonModule,
-    MatNativeDateModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatIconModule,
-    MatRippleModule,
     RouterModule,
     BrowserAnimationsModule,
-    MatTabsModule,
     // FormsModule,
     ReactiveFormsModule,
     CascadeSelectModule,

@@ -9,7 +9,7 @@ import { MatFormFieldModule, MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/mat
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatRippleModule } from '@angular/material/core';
-import { MatToolbarModule } from '@angular/material/toolbar';
+// import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
@@ -28,12 +28,13 @@ import { LogInComponent } from './modules/user/log-in/log-in.component';
 import { AppRoutingModule } from './app-routing.module';
 // import { AddExanComponent } from './modules/exam/add-exan/add-exan.component';
 // import { AddExanComponent } from './modules/exam/add-exan copy/add-exan.component';
-import { CloudinaryModule } from '@cloudinary/angular-5.x';
+//import { CloudinaryModule } from '@cloudinary/angular-5.x';
 
 import { ManagerComponent } from './manager/manager.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import {AddExanComponent} from './modules/exam/add-exan/add-exan.component';
-
+import { MatFormFieldControl } from '@angular/material/form-field';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 const routes: Routes = [
   { path: "", pathMatch: "full", redirectTo: "user" },
@@ -82,6 +83,7 @@ const routes: Routes = [
     MatDialogModule,
     // ExamModule,
     // UserModule,
+    MatDatepickerModule,
     RouterModule.forRoot(routes)
   ],
 

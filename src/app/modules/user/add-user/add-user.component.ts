@@ -113,7 +113,7 @@ export class AddUserComponent implements OnInit {
     this.userType = this.form.get('userType').value;
 
     this.u = new User(this.id, this.fName, this.lName, this.userType, this.email, this.tel, this.pass);
-    this._userService.addUser(this.u).subscribe(t => {
+    this._userService.addUser(this.u).subscribe((t:any )=> {
       if (t) {
         this.hhh = true;
         this.openDialog(true);
