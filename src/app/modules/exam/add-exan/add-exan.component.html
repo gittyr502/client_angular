@@ -1,4 +1,4 @@
-<mat-dialog-content class="mat-typography">
+
     <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -38,18 +38,22 @@
 </div> -->
 
     <!-- <div  [formGroup]="addExamForm"> -->
+<mat-dialog-content >
         <form >
             <mat-form-field appearance="fill">
                 <mat-label>patient</mat-label>
-                <mat-select [(ngModel)]="selectedPatient" name="patient">
-                     <mat-option *ngFor="let id of patientIds" [value]="id" formControlName="patientId">
+                <select matNativeControl [(ngModel)]="selectedPatient" name="patient">
+                    <option value="" selected></option>
+                    <option 
+                     *ngFor="let id of patientIds" 
+                     [value]="id" selected>
                         {{id}}
-                    </mat-option>
-                </mat-select>
+                    </option>
+                </select>
             </mat-form-field>
             <p> Selected Patient: {{selectedPatient}} </p>
         </form>
-    <!-- </div> -->
+
 
 </mat-dialog-content>
 <div mat-dialog-actions>
