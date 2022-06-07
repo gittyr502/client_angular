@@ -1,7 +1,6 @@
 export class Examination {
   id: number;
   patientId: number;
-  doctorName:string="";
   examinationDate: Date;
   doctorId: number;
   computerDiagnosis: boolean;
@@ -10,8 +9,8 @@ export class Examination {
   computerComments: string;
   labComments: string
   probability: number;
-
-  constructor(id: number, patientId: number, examDate: Date, doctorId: number, computerDiagnosis: boolean, linkToImage: string, labyrinthDiagnosis: boolean, computerComments: string, labComments: string, probability: number) {
+doctorComments:string;
+  constructor(id: number, patientId: number, examDate: Date, doctorId: number, computerDiagnosis: boolean, linkToImage: string, labyrinthDiagnosis: boolean, computerComments: string, labComments: string, probability: number,doctorComments:string) {
     this.id = id;
     this.patientId = patientId;
     this.examinationDate = examDate;
@@ -22,5 +21,6 @@ export class Examination {
     this.computerComments = computerComments;
     this.labComments = labComments;
     this.probability = probability;
+    this.doctorComments=doctorComments;
   }
 }

@@ -10,13 +10,15 @@ import { UserDTO } from '../models/userDTO.models';
   providedIn: 'root'
 })
 export class UserService {
-  userId: number = 1076;
+  userId: number = 0;
   baseURL = 'api/User/';
   constructor(private _http: HttpClient) {
 
   }
   getUser(newUser: UserDTO): Observable<User> {
-    return this._http.post<any>(this.baseURL + 'login', newUser);
+   return this._http.post<any>(this.baseURL + 'login', newUser);
+
+    
   }
 
   getAllUsers(): Observable<any> {

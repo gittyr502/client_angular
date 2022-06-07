@@ -16,6 +16,8 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 import { DialogData } from '../../user/add-user/add-user.component';
 import { User } from 'src/app/models/user.model';
 import { MatFormFieldControl } from '@angular/material/form-field';
+import { AlertTrueComponent } from '../../user/add-user/alert-true/alert-true.component';
+import { AlertFalseComponent } from '../../user/add-user/alert-false/alert-false.component';
 @Component({
   selector: 'app-add-exan',
   templateUrl: './add-exan.component.html',
@@ -34,20 +36,23 @@ export class AddExanComponent implements OnInit {
   // })
   hide = true;
   userDTO!: UserDTO;
-  patientIds!:string[];
-  selectedPatient!:string;
+  patients:User[]=[];
+  selectedPatient!:number;
+  doctorComments!:string;
   date!:Date;
   exam!:Examination;
-  constructor( private router: Router,private _patientService:PatientService,private _examService:ExamService,  public dialogRef: MatDialogRef<AddExanComponent>,
+  constructor( private router: Router,private _patientService:PatientService,private _examService:ExamService, private _userService:UserService, public dialogRef: MatDialogRef<AddExanComponent>,
+     private dialog:MatDialog,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) { }
 
   ngOnInit(): void {
     this.userDTO = new UserDTO();
-  this._patientService.getAllPatientsId().subscribe((data: string[])=>{
+      this._userService.getAllUsers().subscribe((data: User[])=>{
       debugger;
-      if (data) {
-        this.patientIds=data;
-      }
+      data.forEach((e)=>{
+        if(e.userKindId==4)
+        this.patients.push(e);
+      });
     });
   }
 
@@ -56,11 +61,32 @@ export class AddExanComponent implements OnInit {
   }
   sendExam():void{
     this.date=new Date();
-    var patient=Number(this.selectedPatient);
-    this.exam=new Examination(null,patient,this.date,null,null,null,null,null,null,null);
-    this._examService.addExam(this.exam);
+    this.exam=new Examination(0,this.selectedPatient,this.date,this._userService.userId,false,'',false,'','',0,this.doctorComments);
+    this._examService.addExam(this.exam).subscribe(()=>{
+    this.openDialog(true);
+    console.log("success");
     this.dialogRef.close();
+   }
+    );
+    
 
+  }
+
+  openDialog(status: boolean): void {
+    if (status == true) {
+      const dialogRef = this.dialog.open(AlertTrueComponent, {
+        width: '30%',
+        height: '20%',
+        data: {},
+      });
+    }
+    else {
+      const dialogRef = this.dialog.open(AlertFalseComponent, {
+        width: '30%',
+        height: '20%',
+        data: {}
+      })
+    }
   }
 
   

@@ -1,69 +1,32 @@
 
-    <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-
-<div class="wrapper fadeInDown">
-    <div id="formContent">
-        Tabs Titles -->
-
-    <!-- Icon -->
-    <!-- <div class="fadeIn first">
-            <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />
-        </div> -->
-
-    <!-- Login Form -->
-    <!-- <form [formGroup]="loginForm">
-            <input type="text" id="login" class="fadeIn second" name="login" placeholder="user name" name="userName" formControlName="email" #id> -->
-
-    <!-- <input type="text" id="password" class="fadeIn third" name="login" > -->
-
-
-    <!-- <mat-label>Enter your password</mat-label> -->
-    <!-- <input id="password" class="fadeIn third" name="login" placeholder="password" formControlName="password" #password matInput [type]="hide ? 'password' : 'text'">
-            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-      </button>
-
-
-            <input type="submit" class="fadeIn fourth" value="Log In" (click)="LogIn(id.value,password.value)">
-        </form> -->
-
-    <!-- Remind Passowrd -->
-    <!-- <div id="formFooter">
-            <a class="underlineHover" href="pass">Forgot Password?</a>
-        </div>
-
-    </div>
-</div> -->
-
-    <!-- <div  [formGroup]="addExamForm"> -->
 <mat-dialog-content >
         <form >
             <mat-form-field appearance="fill">
                 <mat-label>patient</mat-label>
                 <select matNativeControl [(ngModel)]="selectedPatient" name="patient">
-                    <option value="" selected></option>
                     <option 
-                     *ngFor="let id of patientIds" 
-                     [value]="id" selected>
-                        {{id}}
+                     *ngFor="let p of patients" 
+                     [value]="p.id" selected>
+                        {{p.firstName+" "+p.lastName}}
                     </option>
                 </select>
             </mat-form-field>
-            <p> Selected Patient: {{selectedPatient}} </p>
+           
         </form>
+        <p>
+            <mat-form-field appearance="fill" >
+                <mat-label>doctor comments</mat-label>
+                <input matInput   name="doctor comments" [(ngModel)]="doctorComments">
+            </mat-form-field>
 
+        </p>
 
 </mat-dialog-content>
 <div mat-dialog-actions>
-    <button  mat-dialog-close (click)="onNoClick()">No Thanks</button>
-    <button mat-button (click)="sendExam()" cdkFocusInitial>Ok</button>
+    <button  mat-raised-button  mat-dialog-close (click)="onNoClick()" cdkFocusInitial>No Thanks</button>
+    <button  mat-raised-button color="primary" mat-button (click)="sendExam()" cdkFocusInitial>Ok</button>
 </div>
-<!-- <mat-dialog-actions align="end">
-    <button mat-button mat-dialog-close>Cancel</button>
-     <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button> 
-  </mat-dialog-actions> -->
+
 
 
 

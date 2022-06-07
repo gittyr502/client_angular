@@ -21,7 +21,7 @@ export class LogInComponent implements OnInit {
   });
   userDTO!: UserDTO;
 
-  constructor(private _loginService: UserService, private router: Router) { }
+  constructor(private _loginService: UserService, private router: Router, private _userService:UserService) { }
 
   ngOnInit(): void {
     this.userDTO = new UserDTO();
@@ -31,7 +31,7 @@ export class LogInComponent implements OnInit {
     this.userDTO.password = password;
     this._loginService.getUser(this.userDTO).subscribe(data => {
       if (data) {
-        this._loginService.userId=data.id;
+        this._userService.userId=data.id;
         console.log("hello" + " " + data.firstName + " " + data.lastName);
         if (data.userKindId == 4) {
           this.router.navigate(['/patient', { id: data.id }]);

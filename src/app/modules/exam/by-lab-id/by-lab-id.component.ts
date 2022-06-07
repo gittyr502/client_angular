@@ -51,7 +51,7 @@ export class ByLabIdComponent implements OnInit {
       if (data) {
         this.examinations=data;
         this.examinations.forEach(el=>{
-          el.doctorName=this.getValue(el.doctorId);
+          el.doctorId=el.doctorId;
         })
       this.dataSource=new MatTableDataSource(this.examinations);
       }
@@ -61,6 +61,10 @@ export class ByLabIdComponent implements OnInit {
   addExam(): void {
     debugger;
     this.router.navigate(['/addExam']);
+  }
+  addFile()
+  {
+    
   }
   // addImg(_imgSrc:ImageSnippet){
 

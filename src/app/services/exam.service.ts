@@ -29,8 +29,9 @@ export class ExamService {
   }
 
   addExam(exam:Examination):Observable<any>{
-    return this._http.post<any>(this.baseURL,exam);
-    // return this._http.post<any>('/api?data='+exam,null);
+    debugger;
+    return this._http.post<Examination>(this.baseURL,exam);
+   
   }
 
   // addExam(exam:Examination):Observable<any>{

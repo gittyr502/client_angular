@@ -43,6 +43,7 @@ export class ByDoctorIdComponent implements OnInit {
 
     this.examService.getExamByDoctorId(this.idPatient).subscribe(data => {
       if (data) {
+        debugger;
         this.examinations = data;
         this.dataSource = new MatTableDataSource(this.examinations);
       }
