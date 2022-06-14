@@ -50,10 +50,7 @@ export class ByDoctorIdComponent implements OnInit {
     });
 
   }
-  //   ngAfterViewInit() {
-
-  //   this.dataSource.sort = this.sort;
-  // }
+  
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -72,11 +69,7 @@ export class ByDoctorIdComponent implements OnInit {
 
   addUser(): void {
     const dialogRef = this.dialog.open(AddPatientComponent
-    //   , {
-    //   width: '30%',
-    //   height: '70%',
-    //   data: {},
-    // }
+  
     );
   }
 

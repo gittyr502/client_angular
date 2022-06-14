@@ -30,7 +30,7 @@ export class ByLabIdComponent implements OnInit {
   examinations!: Examination[];
   dataSource!: any;
 
-  displayedColumns: string[] = ['index', 'examDate', 'computerDiagnosis', 'computerComments', 'probability', 'linkToPicture'];
+  displayedColumns: string[] = ['index', 'examDate', 'doctorName','doctorComments','edit'];
 
 
   constructor(private examService: ExamService, private router: Router) {

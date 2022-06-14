@@ -3,8 +3,8 @@ export class Examination {
   patientId: number;
   examinationDate: Date;
   doctorId: number;
-  computerDiagnosis: boolean;
-  linkToImage: string;
+  computerDiagnosis?: boolean;
+  linkToImage?: string;
   labyrinthDiagnosis: boolean;
   computerComments: string;
   labComments: string

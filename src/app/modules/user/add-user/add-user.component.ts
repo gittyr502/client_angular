@@ -40,9 +40,10 @@ import { MAT_FORM_FIELD, MatFormField, MatFormFieldControl } from '@angular/mate
 import { Subject } from 'rxjs';
 import { User } from 'src/app/models/user.model';
 import { UserService } from 'src/app/services/user.service';
-import { AlertTrueComponent } from './alert-true/alert-true.component';
-import { AlertFalseComponent } from './alert-false/alert-false.component';
 
+import { ExamService } from 'src/app/services/exam.service';
+import { AlertFalseComponent } from '../../material/alert-false/alert-false.component';
+import { AlertTrueComponent } from '../../material/alert-true/alert-true.component';
 
 
 @Component({
@@ -75,7 +76,7 @@ export class AddUserComponent implements OnInit {
    {id:4, kind:"patient"}
   ];
 
-  constructor(public dialogRef: MatDialogRef<AddUserComponent>, private _elementRef: ElementRef<HTMLElement>,
+  constructor(private _examService:ExamService, public dialogRef: MatDialogRef<AddUserComponent>, private _elementRef: ElementRef<HTMLElement>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData, private _userService: UserService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
@@ -120,6 +121,7 @@ export class AddUserComponent implements OnInit {
     this._userService.addUser(this.u).subscribe((t:any )=> {
       if (t) {
         this.hhh = true;
+        
         this.openDialog(true);
 
       } else { this.hhh = true; this.openDialog(false); }

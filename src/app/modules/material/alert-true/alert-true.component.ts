@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ExamService } from 'src/app/services/exam.service';
 
 @Component({
   selector: 'app-alert-true',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AlertTrueComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private _examService:ExamService) { }
+ whatAlert:string='';
   ngOnInit(): void {
+   
   }
+ 
 
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MaterialService } from 'src/app/services/material.service';
 
 @Component({
   selector: 'app-alert-false',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AlertFalseComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private _materialService:MaterialService) { }
+whatAlert:string='';
   ngOnInit(): void {
+    this.whatAlert=this._materialService.whatAlert;
   }
 
 }

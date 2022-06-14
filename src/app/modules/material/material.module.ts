@@ -20,11 +20,17 @@ import {MatDividerModule} from '@angular/material/divider';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list'; 
 import {MatTooltipModule} from '@angular/material/tooltip';
-import { FormsModule } from '@angular/forms'
+import { FormsModule } from '@angular/forms';
+
+import { AlertFalseComponent } from './alert-false/alert-false.component';
+import { AlertTrueComponent } from './alert-true/alert-true.component';
 
 @NgModule({
   declarations: [
+  AlertFalseComponent,
+  AlertTrueComponent
   
+ 
   ],
   imports: [
     CommonModule,
@@ -77,7 +83,9 @@ import { FormsModule } from '@angular/forms'
     MatListModule,
     MatTooltipModule,
     MatFormFieldModule,
-    FormsModule
+    FormsModule,
+    AlertFalseComponent,
+    AlertTrueComponent
   ]
   // providers: [{ 
   //   provide: ng MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } 

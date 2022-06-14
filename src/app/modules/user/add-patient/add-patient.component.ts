@@ -9,9 +9,10 @@ import { patientDTO } from 'src/app/models/patientDTO.models';
 import { User } from 'src/app/models/user.model';
 import { PatientService } from 'src/app/services/patient.service';
 import { UserService } from 'src/app/services/user.service';
+import { AlertFalseComponent } from '../../material/alert-false/alert-false.component';
+import { AlertTrueComponent } from '../../material/alert-true/alert-true.component';
 import { AddUserComponent } from '../add-user/add-user.component';
-import { AlertFalseComponent } from '../add-user/alert-false/alert-false.component';
-import { AlertTrueComponent } from '../add-user/alert-true/alert-true.component';
+
 
 @Component({
   selector: 'app-add-patient',

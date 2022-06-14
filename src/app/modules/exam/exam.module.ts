@@ -6,6 +6,7 @@ import { AddExanComponent } from './add-exan/add-exan.component';
 import { MaterialModule } from '../material/material.module';
 import { ByPatientIdComponent } from './by-patient-id/by-patient-id.component';
 import { Routes } from '@angular/router';
+import { AddExamLabComponent } from './add-exam-lab/add-exam-lab.component';
 
 const routes: Routes = [
   {
@@ -26,7 +27,8 @@ const routes: Routes = [
   ByDoctorIdComponent,
   ByLabIdComponent,
   ByPatientIdComponent,
-  AddExanComponent
+  AddExanComponent,
+  AddExamLabComponent
   ],
   imports: [
     MaterialModule

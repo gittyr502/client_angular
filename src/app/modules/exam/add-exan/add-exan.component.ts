@@ -16,8 +16,9 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 import { DialogData } from '../../user/add-user/add-user.component';
 import { User } from 'src/app/models/user.model';
 import { MatFormFieldControl } from '@angular/material/form-field';
-import { AlertTrueComponent } from '../../user/add-user/alert-true/alert-true.component';
-import { AlertFalseComponent } from '../../user/add-user/alert-false/alert-false.component';
+import { AlertTrueComponent } from '../../material/alert-true/alert-true.component';
+import { AlertFalseComponent } from '../../material/alert-false/alert-false.component';
+
 @Component({
   selector: 'app-add-exan',
   templateUrl: './add-exan.component.html',
@@ -74,6 +75,7 @@ export class AddExanComponent implements OnInit {
 
   openDialog(status: boolean): void {
     if (status == true) {
+      
       const dialogRef = this.dialog.open(AlertTrueComponent, {
         width: '30%',
         height: '20%',
@@ -81,6 +83,7 @@ export class AddExanComponent implements OnInit {
       });
     }
     else {
+     
       const dialogRef = this.dialog.open(AlertFalseComponent, {
         width: '30%',
         height: '20%',

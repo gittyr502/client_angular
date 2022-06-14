@@ -11,12 +11,10 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 import { AddUserComponent } from './add-user/add-user.component';
 import { MyTelInput } from "./add-user/example-tel-input";
 import { CascadeSelectModule } from 'primeng/cascadeselect';
-import { AlertTrueComponent } from './add-user/alert-true/alert-true.component';
-import { AlertFalseComponent } from './add-user/alert-false/alert-false.component';
+
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { MaterialModule } from '../material/material.module';
 import { AddPatientComponent } from './add-patient/add-patient.component';
-
 
 // const user_routes: Routes = [
 //   {
@@ -35,7 +33,7 @@ import { AddPatientComponent } from './add-patient/add-patient.component';
 
 
 @NgModule({
-  declarations: [LogInComponent, ResetPasswordComponent, AddUserComponent, MyTelInput, AlertTrueComponent, AlertFalseComponent,AddPatientComponent],
+  declarations: [LogInComponent, ResetPasswordComponent, AddUserComponent, MyTelInput,AddPatientComponent],
   imports: [
     CommonModule,
     RouterModule,
@@ -48,9 +46,7 @@ import { AddPatientComponent } from './add-patient/add-patient.component';
     LogInComponent,
     ResetPasswordComponent,
     AddUserComponent,
-    AddPatientComponent,
-    AlertFalseComponent,
-    AlertTrueComponent
+    AddPatientComponent
     
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
