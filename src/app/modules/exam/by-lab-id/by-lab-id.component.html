@@ -30,8 +30,8 @@
 
     <ng-container matColumnDef="edit">
         <th mat-header-cell *matHeaderCellDef> edit </th>
-       
-        <td mat-cell> <button mat-raised-button color="primary">edit</button> </td>
+
+        <td mat-cell> <button mat-raised-button color="primary" *matCellDef="let element" (click)="editExam(element)">edit</button> </td>
     </ng-container>
 
     <!-- computerDiagnosis Column
@@ -78,3 +78,5 @@
 <!-- Copyright 2022 Google LLC. All Rights Reserved.
       Use of this source code is governed by an MIT-style license that
       can be found in the LICENSE file at https://angular.io/license -->
+
+<!-- <button mat-raised-button color="primary" (click)="editExam()">edit</button> -->

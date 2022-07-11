@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { Examination } from 'src/app/models/examinations.model';
 import { ExamService } from 'src/app/services/exam.service';
+import { EditExamComponent } from './editExam/editExam.component';
 
 
 
@@ -33,7 +35,7 @@ export class ByLabIdComponent implements OnInit {
   displayedColumns: string[] = ['index', 'examDate', 'doctorName','doctorComments','edit'];
 
 
-  constructor(private examService: ExamService, private router: Router) {
+  constructor(private examService: ExamService, private router: Router,private dialog:MatDialog) {
   }
 
   applyFilter(event: Event) {
@@ -64,7 +66,17 @@ export class ByLabIdComponent implements OnInit {
   }
   addFile()
   {
-    
+
+  }
+
+  editExam(exam:Examination):void{
+    const dialogRef = this.dialog.open(EditExamComponent
+      //   , {
+      //   width: '30%',
+      //   height:'80%',
+      //   data: {},
+      // }
+      );
   }
   // addImg(_imgSrc:ImageSnippet){
 
