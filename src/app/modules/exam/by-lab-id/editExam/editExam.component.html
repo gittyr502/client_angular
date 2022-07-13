@@ -1,3 +1,21 @@
-<p>
-  editExam works!
-</p>
+<div mat-dialog-content>
+    <form>
+        <mat-form-field appearance="fill">
+            <mat-label>examination date</mat-label>
+            <input matInput name="doctor comments" [(ngModel)]="_exam.examinationDate" [disabled]=" true ">
+        </mat-form-field>
+
+    </form>
+    <p>
+        <!-- <mat-form-field appearance="fill ">
+            <mat-label>doctor comments</mat-label>
+            <input matInput name="doctor comments " [(ngModel)]="doctorComments ">
+        </mat-form-field> -->
+
+    </p>
+
+</div>
+<!-- <div mat-dialog-actions>
+    <button mat-raised-button mat-dialog-close (click)="onNoClick() " cdkFocusInitial>No Thanks</button>
+    <button mat-raised-button color="primary " mat-button (click)="sendExam() " cdkFocusInitial>Ok</button>
+</div> -->

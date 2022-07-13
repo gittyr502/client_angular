@@ -7,10 +7,11 @@ import { MaterialModule } from '../material/material.module';
 import { ByPatientIdComponent } from './by-patient-id/by-patient-id.component';
 import { Routes } from '@angular/router';
 import { AddExamLabComponent } from './add-exam-lab/add-exam-lab.component';
+import { EditExamComponent } from './by-lab-id/editExam/editExam.component';
 
 const routes: Routes = [
   {
-    
+
     path: "", pathMatch:"full", redirectTo:"user"
   },
   {path:'exams',component:ByDoctorIdComponent},
@@ -28,7 +29,8 @@ const routes: Routes = [
   ByLabIdComponent,
   ByPatientIdComponent,
   AddExanComponent,
-  AddExamLabComponent
+  AddExamLabComponent,
+  EditExamComponent
   ],
   imports: [
     MaterialModule
@@ -39,7 +41,7 @@ const routes: Routes = [
   ByPatientIdComponent,
   AddExanComponent
   ],
-  
+
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ExamModule { }
