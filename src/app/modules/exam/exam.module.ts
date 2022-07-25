@@ -8,40 +8,40 @@ import { ByPatientIdComponent } from './by-patient-id/by-patient-id.component';
 import { Routes } from '@angular/router';
 import { AddExamLabComponent } from './add-exam-lab/add-exam-lab.component';
 import { EditExamComponent } from './by-lab-id/editExam/editExam.component';
+import { NgControl } from '@angular/forms';
+import { PictureService } from 'src/app/services/picture.service';
 
 const routes: Routes = [
   {
-
-    path: "", pathMatch:"full", redirectTo:"user"
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'user',
   },
-  {path:'exams',component:ByDoctorIdComponent},
+  { path: 'exams', component: ByDoctorIdComponent },
   // {path:'add user',component:AddUser},
   // {path:'discussion groups',component:}
 
-{path:'addExam',component:AddExanComponent}
+  { path: 'addExam', component: AddExanComponent },
 ];
-
-
 
 @NgModule({
   declarations: [
-  ByDoctorIdComponent,
-  ByLabIdComponent,
-  ByPatientIdComponent,
-  AddExanComponent,
-  AddExamLabComponent,
-  EditExamComponent
+    ByDoctorIdComponent,
+    ByLabIdComponent,
+    ByPatientIdComponent,
+    AddExanComponent,
+    AddExamLabComponent,
+    EditExamComponent,
   ],
-  imports: [
-    MaterialModule
-  ],
+  imports: [MaterialModule],
   exports: [
     ByDoctorIdComponent,
-  ByLabIdComponent,
-  ByPatientIdComponent,
-  AddExanComponent
+    ByLabIdComponent,
+    ByPatientIdComponent,
+    AddExanComponent,
   ],
 
-    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  providers: [PictureService],
 })
-export class ExamModule { }
+export class ExamModule {}

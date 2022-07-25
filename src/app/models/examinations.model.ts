@@ -4,7 +4,7 @@ export class Examination {
   examinationDate: Date;
   doctorId: number;
   computerDiagnosis?: boolean;
-  linkToImage?: string;
+  linkToFile?: string;
   labyrinthDiagnosis: boolean;
   computerComments: string;
   labComments: string
@@ -16,7 +16,7 @@ doctorComments:string;
     this.examinationDate = examDate;
     this.doctorId = doctorId;
     this.computerDiagnosis = computerDiagnosis;
-    this.linkToImage = linkToImage;
+    this.linkToFile = linkToImage;
     this.labyrinthDiagnosis = labyrinthDiagnosis;
     this.computerComments = computerComments;
     this.labComments = labComments;

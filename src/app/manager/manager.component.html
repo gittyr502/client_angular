@@ -1,1 +1,49 @@
-<button (click)="openDialog()">Add User</button>
+<mat-form-field appearance="fill">
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex.ium" #input>
+</mat-form-field>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="index">
+        <th mat-header-cell *matHeaderCellDef> No. </th>
+        <td mat-cell *matCellDef="let element; index as i"> {{i}} </td>
+    </ng-container>
+
+    <!-- examDate Column -->
+    <ng-container *ngFor="let element of users" matColumnDef="examDate">
+        <th mat-header-cell *matHeaderCellDef> examinationDate </th>
+        <!-- <td mat-cell *matCellDef="let ele"> {{element}} </td> -->
+        <tr mat-cell *matCellDef="let ele"> {{element}} </tr>
+    </ng-container>
+    <li></li>
+
+
+    <!-- doctorName Column
+    <ng-container matColumnDef="doctorName">
+        <th mat-header-cell *matHeaderCellDef> doctor name </th>
+        <td mat-cell *matCellDef="let element"> {{element.doctorName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="doctorComments">
+        <th mat-header-cell *matHeaderCellDef> doctor comments</th>
+        <td mat-cell *matCellDef="let element"> {{element.doctorComments}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="edit">
+        <th mat-header-cell *matHeaderCellDef> edit </th>
+
+        <td mat-cell>
+            <button mat-raised-button color="primary" *matCellDef="let element">edit</button> </td>
+    </ng-container> -->
+
+
+    <!--
+    <tr mat-header-row *matHeaderRowDef="displayedColumns "></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns; "></tr> -->
+
+</table>
+
+
+<button (click)="openDialog() ">Add User</button>

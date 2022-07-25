@@ -19,9 +19,10 @@ import { ResetPasswordComponent } from './modules/user/reset-password/reset-pass
 import { AddUserComponent } from './modules/user/add-user/add-user.component';
 import { AddExanComponent } from './modules/exam/add-exan/add-exan.component';
 import { AddPatientComponent } from './modules/user/add-patient/add-patient.component';
+import { MatTableModule } from '@angular/material/table';
 
 const routes: Routes = [
-  { path: "", pathMatch: "full", redirectTo: "user" },
+  { path: '', pathMatch: 'full', redirectTo: 'user' },
   { path: 'user', component: LogInComponent },
   { path: 'patient', component: ByPatientIdComponent },
   { path: 'patient/:id', component: ByPatientIdComponent },
@@ -33,38 +34,28 @@ const routes: Routes = [
   { path: 'upload', component: AddExanComponent },
   { path: 'addpatient', component: AddPatientComponent },
   { path: 'manager', component: ManagerComponent },
-  {path:'addExam',component:AddExanComponent}
+  { path: 'addExam', component: AddExanComponent },
   // {path:'manager/:id',component:ByDoctorIdComponent}
   //loadChildren: () => import('./modules/exam/exam.module').then(m => m.ExamModule)
-
 ];
 @NgModule({
-  declarations: [
-    AppComponent,
-    ManagerComponent,
-   
-  ],
+  declarations: [AppComponent, ManagerComponent],
   imports: [
     AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
-   ExamModule,
-   UserModule,
+    ExamModule,
+    UserModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    MatTableModule,
   ],
 
+  providers: [UserService],
 
-  providers: [
-    
-    UserService],
-
-  schemas: [
-    CUSTOM_ELEMENTS_SCHEMA
-  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent],
-  exports: [RouterModule]
-
+  exports: [RouterModule],
 })
-export class AppModule { }
+export class AppModule {}
