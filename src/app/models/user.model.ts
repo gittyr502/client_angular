@@ -3,7 +3,7 @@ export class User{
     idNumber:number;
     firstName:string;
     lastName:string;
-    userKindId: number;
+    userKindId: any;
     email: string|undefined;
     phone:string|undefined;
     password:string|undefined;

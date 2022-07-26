@@ -20,6 +20,7 @@ import { AddUserComponent } from './modules/user/add-user/add-user.component';
 import { AddExanComponent } from './modules/exam/add-exan/add-exan.component';
 import { AddPatientComponent } from './modules/user/add-patient/add-patient.component';
 import { MatTableModule } from '@angular/material/table';
+import { MaterialModule } from './modules/material/material.module';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'user' },
@@ -49,7 +50,7 @@ const routes: Routes = [
     UserModule,
     ReactiveFormsModule,
     RouterModule.forRoot(routes),
-    MatTableModule,
+    MaterialModule
   ],
 
   providers: [UserService],

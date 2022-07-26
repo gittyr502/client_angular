@@ -8,16 +8,6 @@
             </mat-form-field>
         </p>
 
-        <!--<<<<<< HEAD=======< mat-form-field appearance="fill">
-    <mat-label>Choose a birthDate</mat-label>
-    #docregion toggle
-    <input matInput [matDatepicker]="picker">
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker> -->
-        <!-- #enddocregion toggle >
-</mat-form-field>
->>>>>>> f96076c706cf31b9b54d6295757a73040f693993 -->
-
         <p>
             <mat-form-field appearance="fill" matFormFieldControl="firstName">
                 <mat-label>first name</mat-label>
@@ -54,20 +44,20 @@
             </mat-form-field>
         </p>
         <p>
-        
-    
-    <br>
-    <mat-form-field appearance="fill">
-        <mat-label>select user type</mat-label>
-        <select matNativeControl   formControlName="userType" name="userType">
-            <option  
+
+
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>select user type</mat-label>
+                <select matNativeControl formControlName="userType" name="userType">
+            <option
             *ngFor="let opt of options"
-             [value]="opt.id" >
+             [value]="opt.id" [(ngModel)]="selectedType">
                 {{opt.kind}}
             </option>
         </select>
-    </mat-form-field>
-<br>
+            </mat-form-field>
+            <br>
             <button mat-raised-button color="primary" (click)="addUser()">Save User</button>
     </form>
 
