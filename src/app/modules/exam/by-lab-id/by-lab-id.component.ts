@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
-import { Param } from 'cloudinary-core';
 import { Examination } from 'src/app/models/examinations.model';
 import { ExamService } from 'src/app/services/exam.service';
 import { EditExamComponent } from './editExam/editExam.component';
