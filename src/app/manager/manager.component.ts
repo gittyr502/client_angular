@@ -24,6 +24,7 @@ export class ManagerComponent implements OnInit {
     'userName',
     'userKindId',
     'deleteUser',
+    'updateUser',
   ];
   @ViewChild(MatSort) sort!: MatSort;
 
@@ -54,6 +55,9 @@ export class ManagerComponent implements OnInit {
       }
     });
     this.getusers();
+  }
+  updateUser(ele:any){
+
   }
 
   getusers() {

@@ -1,22 +1,17 @@
 <!-- <p>add-patient works!</p> -->
 <div mat-dialog-content>
     <form class="example-form" [formGroup]="form">
-
-
+        <mat-icon color="primary">account_circle</mat-icon>
         <mat-form-field appearance="fill">
             <mat-label>Select user</mat-label>
             <select matNativeControl formControlName="user" formControlName="user">
-                    <option
-                     *ngFor="let user of users"
-
-                     [value]="user.id" selected>
-                        {{user.firstName+ " "+ user.lastName}}
-                    </option>
+                <option *ngFor="let user of users" [value]="user.id" selected>
+                    {{user.firstName+ " "+ user.lastName}}
+                </option>
                 </select>
         </mat-form-field>
         <button mat-raised-button color="primary" (click)="addUser()">add user</button>
         <br>
-
 
         <mat-form-field appearance="fill" class="example-form-field">
             <mat-label>Choose a date</mat-label>
@@ -45,8 +40,11 @@
                   </option>
               </select>
         </mat-form-field>
-
-        <button mat-raised-button color="primary" (click)="add_patient()">Save Patient</button>
+        <br>
+        <div mat-dialog-actions>
+            <button mat-raised-button mat-dialog-close (click)="onNoClick()" cdkFocusInitial>No Thanks</button>
+            <button mat-raised-button color="primary" (click)="add_patient()">Save Patient</button>
+        </div>
     </form>
 
 </div>

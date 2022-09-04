@@ -1,7 +1,7 @@
 import { NgClass } from '@angular/common';
 import { Component, forwardRef, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, NgControl, NG_VALUE_ACCESSOR, Validators } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 import { Router } from '@angular/router';
 import { Patient } from 'src/app/models/patient.model';
@@ -34,10 +34,10 @@ export class AddPatientComponent implements OnInit {
  hmos = [
     { id: 1, hmo:"mehuchedet"},
     {id:2, hmo:"leumit"},
-    {id:3, hmo:"macabi"}, 
+    {id:3, hmo:"macabi"},
     {id:4, hmo:"klalit"}
    ];
-  constructor(private _userService: UserService, private fb: FormBuilder, private router: Router, private dialog:MatDialog,private _patientService:PatientService) { }
+  constructor(private _userService: UserService, private fb: FormBuilder, private router: Router, private dialog:MatDialog,private _patientService:PatientService, public dialogRef:MatDialogRef<AddPatientComponent>) { }
 
   addPatient = this.fb.group({
     user1: ['', [Validators.required]],
@@ -54,13 +54,13 @@ export class AddPatientComponent implements OnInit {
          if(e.userKindId==4)
          this.users.push(e)
        });
-      
-    
+
+
 
     })
   }
 
- 
+
 
   add_patient(): void {
   this.p1=new Patient(0,this.form.get('user').value,this.form.get('birthDate').value,this.form.get('HMOId').value)
@@ -71,13 +71,13 @@ export class AddPatientComponent implements OnInit {
       }
       )
     }
- 
 
-  
- 
+
+
+
   addUser(){
     const dialogRef = this.dialog.open(AddUserComponent);
-   
+
   }
 
   openDialog(status: boolean): void {
@@ -95,6 +95,10 @@ export class AddPatientComponent implements OnInit {
         data: {}
       })
     }
+  }
+
+  onNoClick(): void {
+    this.dialogRef.close();
   }
 }
 
