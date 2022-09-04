@@ -27,7 +27,7 @@
               "src/assets"
             ],
             "styles": [
-              "./node_modules/@angular/material/prebuilt-themes/purple-green.css",
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -73,8 +73,8 @@
               "browserTarget": "microscopic-picture:build:production"
             },
             "development": {
-              "browserTarget": "microscopic-picture:build:development"
-              
+              "browserTarget": "microscopic-picture:build:development",
+              "proxyConfig": "proxy.config.json"
               
             }
           },
@@ -98,7 +98,8 @@
               "src/assets"
             ],
             "styles": [
-              "./node_modules/@angular/material/prebuilt-themes/purple-green.css",
+              
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
             "scripts": []

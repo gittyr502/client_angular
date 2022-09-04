@@ -1,0 +1,31 @@
+<div mat-dialog-content>
+    <form>
+        <mat-form-field appearance="fill">
+            <mat-label>examination date</mat-label>
+            <input matInput name="doctor comments" [(ngModel)]="_exam.examinationDate" [disabled]=" true ">
+        </mat-form-field>
+
+        <br>
+        <mat-label><input mat-raised-button color="primary" id="file" type="file" class="form-control" accept="image/*" (change)="onFileChange($event)"></mat-label>
+        <br>
+        <img #image [src]="_imageSrc" *ngIf="_imageSrc" style="height:30%; width:30%">
+        <div class="b">
+
+        </div>
+
+        <button mat-raised-button color="primary" matStepperNext (click)="saveExam()">save Exam</button>
+
+    </form>
+    <p>
+        <!-- <mat-form-field appearance="fill ">
+            <mat-label>doctor comments</mat-label>
+            <input matInput name="doctor comments " [(ngModel)]="doctorComments ">
+        </mat-form-field> -->
+
+    </p>
+
+</div>
+<!-- <div mat-dialog-actions>
+    <button mat-raised-button mat-dialog-close (click)="onNoClick() " cdkFocusInitial>No Thanks</button>
+    <button mat-raised-button color="primary " mat-button (click)="sendExam() " cdkFocusInitial>Ok</button>
+</div> -->

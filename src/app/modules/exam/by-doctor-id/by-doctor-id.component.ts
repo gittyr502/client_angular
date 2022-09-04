@@ -1,9 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Examination } from 'src/app/models/examinations.model';
 import { ExamService } from 'src/app/services/exam.service';
+import { AddPatientComponent } from '../../user/add-patient/add-patient.component';
+import { AddExanComponent } from '../add-exan/add-exan.component';
 import { ExamModule } from '../exam.module';
 
 
@@ -14,41 +17,69 @@ import { ExamModule } from '../exam.module';
 })
 export class ByDoctorIdComponent implements OnInit {
 
- 
-  constructor(private examService:ExamService,private _acr: ActivatedRoute, private route:Router) { }
-        displayedColumns: string[] = ['index','examination date', 'patient id','labyrinth_comments','labyrinth_diagnosis','doctor_comments', 'result','send message to patient'];
-        idPatient!:number;
-        examinations!:Examination[];
-        dataSource!:any;
-        links = ['exams', 'add user', 'discussion groups'];
-       activeLink = this.links[0];
-        
+
+  constructor(private examService: ExamService, private _acr: ActivatedRoute, private route: Router, private dialog: MatDialog) { }
+  displayedColumns: string[] = ['index', 'examination date', 'patient id', 'labyrinth_comments', 'labyrinth_diagnosis', 'result', 'doctor_comments'
+
+    //  'send message to patient'
+  ];
+  idPatient!: number;
+  examinations!: Examination[];
+  dataSource!: any;
+  links = ['exams', 'add user', 'add exam', 'discussion groups'];
+  activeLink = this.links[0];
+  doctorComments: string = "";
+
   @ViewChild(MatSort) sort!: MatSort;
 
-ngOnInit(): void {
-  
+  ngOnInit(): void {
+
     this._acr.paramMap.subscribe(params => {
       var idParam = params.get("id");
-      if (idParam!= undefined&&idParam!=null)
-        this.idPatient =(Number)(idParam);
-      
+      if (idParam != undefined && idParam != null)
+        this.idPatient = (Number)(idParam);
+
     })
+
     this.examService.getExamByDoctorId(this.idPatient).subscribe(data => {
       if (data) {
-      this.examinations=data;
-       this.dataSource = new MatTableDataSource(this.examinations);
+        debugger;
+        this.examinations = data;
+        this.dataSource = new MatTableDataSource(this.examinations);
       }
     });
-    
+
   }
-  ngAfterViewInit() {
-  this.dataSource.sort = this.sort;
-}
+  
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-  navigator(){
-    this.route.navigate(['/'+this.activeLink]);
+  navigator() {
+
+    if (this.activeLink == 'add user') {
+      this.addUser();
+    }
+
+   else if (this.activeLink == 'add exam') {
+      this.addExam();
+    }
+    else this.route.navigate(['/' + this.activeLink]);
+  }
+
+  addUser(): void {
+    const dialogRef = this.dialog.open(AddPatientComponent
+  
+    );
+  }
+
+  addExam(): void {
+    const dialogRef = this.dialog.open(AddExanComponent
+      , {
+      width: '30%',
+      height: '80%',
+      data: {},
+    }
+    )
   }
 }

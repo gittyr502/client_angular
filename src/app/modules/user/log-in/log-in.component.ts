@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginService } from 'src/app/services/login.service';
-import { FormControl, FormGroup, FormsModule } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';
+import {  UserService } from 'src/app/services/user.service';
+import { FormControl, FormGroup } from '@angular/forms';
 import { UserDTO } from 'src/app/models/userDTO.models';
 import { Router } from '@angular/router';
 
@@ -15,15 +14,14 @@ import { Router } from '@angular/router';
 })
 export class LogInComponent implements OnInit {
   hide = true;
-  links = ['exams', 'add user', 'discussion groups'];
-  activeLink = this.links[0];
+  
   loginForm: FormGroup = new FormGroup({
     email: new FormControl(),
     password: new FormControl(),
   });
   userDTO!: UserDTO;
 
-  constructor(private _loginService: LoginService, private router: Router) { }
+  constructor(private _loginService: UserService, private router: Router, private _userService:UserService) { }
 
   ngOnInit(): void {
     this.userDTO = new UserDTO();
@@ -33,6 +31,7 @@ export class LogInComponent implements OnInit {
     this.userDTO.password = password;
     this._loginService.getUser(this.userDTO).subscribe(data => {
       if (data) {
+        this._userService.userId=data.id;
         console.log("hello" + " " + data.firstName + " " + data.lastName);
         if (data.userKindId == 4) {
           this.router.navigate(['/patient', { id: data.id }]);
@@ -43,7 +42,7 @@ export class LogInComponent implements OnInit {
         if (data.userKindId == 2) {
           this.router.navigate(['/doctor', { id: data.id }]);
         }
-        if (data.userKindId == 4) {
+        if (data.userKindId == 3) {
           this.router.navigate(['/lab', { id: data.id }]);
         }
 

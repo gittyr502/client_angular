@@ -8,12 +8,18 @@ import { patientDTO } from '../models/patientDTO.models';
   providedIn: 'root'
 })
 export class PatientService {
-  baseURL='/api/Patient/';
-  constructor(private _http: HttpClient){
+  baseURL = '/api/Patient/';
+  constructor(private _http: HttpClient) {
   }
-  getPatientsByUserId(userId:number):Observable<patientDTO[]>
-  {
-    
-    return this._http.get<any>('http://localhost:21757/api/Patient/'+ userId);
+  getPatientsByUserId(userId: number): Observable<patientDTO[]> {
+
+    return this._http.get<any>(this.baseURL + userId);
+  }
+
+  getAllPatientsId(): Observable<string[]> {
+    return this._http.get<any>(this.baseURL+"GetAllPatientsIds");
+  }
+  addPatient(p:Patient ){
+    return this._http.post<Patient>(this.baseURL,p);
   }
 }

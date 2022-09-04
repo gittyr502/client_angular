@@ -1,0 +1,86 @@
+<div mat-dialog-content>
+    <form>
+        <mat-form-field appearance="fill">
+            <mat-label>patient</mat-label>
+            <select matNativeControl [(ngModel)]="selectedPatient" name="patient">
+                    <option
+                     *ngFor="let p of patients"
+                     [value]="p.id" selected>
+                        {{p.firstName+" "+p.lastName}}
+                    </option>
+                </select>
+        </mat-form-field>
+
+    </form>
+    <p>
+        <mat-form-field appearance="fill">
+            <mat-label>doctor comments</mat-label>
+            <input matInput name="doctor comments" [(ngModel)]="doctorComments">
+        </mat-form-field>
+    </p>
+
+</div>
+<div mat-dialog-actions>
+    <button mat-raised-button mat-dialog-close (click)="onNoClick()" cdkFocusInitial>No Thanks</button>
+    <button mat-raised-button color="primary" mat-button (click)="sendExam()" cdkFocusInitial>Ok</button>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <p>
+    <mat-form-field appearance="legacy">
+        <mat-label>patient id</mat-label>
+        <input matInput placeholder="Placeholder">
+    </mat-form-field>
+</p>
+
+<mat-form-field appearance="fill">
+    <mat-label>add picture</mat-label>
+
+</mat-form-field>
+
+
+
+<div>
+    <form action="" method="post" enctype="multipart/form-data">
+        <input type="file">
+    </form>
+    <label>Choose file</label>
+</div> -->

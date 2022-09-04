@@ -1,23 +1,20 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule,FormGroup,FormControl,FormsModule } from '@angular/forms';
-
+import { ReactiveFormsModule, FormGroup, FormControl, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { LogInComponent } from './log-in/log-in.component';
 import { RouterModule, Routes } from '@angular/router';
-import { ByPatientIdComponent } from '../exam/by-patient-id/by-patient-id.component';
-import { MatNativeDateModule, MatRippleModule } from '@angular/material/core';
-import { MatButtonModule } from '@angular/material/button';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatIconModule } from '@angular/material/icon';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { ByPatientIdComponent } from '../exam/by-patient-id/by-patient-id.component'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { AddUserComponent } from './add-user/add-user.component';
+import { MyTelInput } from "./add-user/example-tel-input";
+import { CascadeSelectModule } from 'primeng/cascadeselect';
 
-import {  MatTabsModule} from '@angular/material/tabs';
-
-
-
+import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
+import { MaterialModule } from '../material/material.module';
+import { AddPatientComponent } from './add-patient/add-patient.component';
 
 // const user_routes: Routes = [
 //   {
@@ -36,26 +33,27 @@ import {  MatTabsModule} from '@angular/material/tabs';
 
 
 @NgModule({
-  declarations: [LogInComponent],
+  declarations: [LogInComponent, ResetPasswordComponent, AddUserComponent, MyTelInput,AddPatientComponent],
   imports: [
     CommonModule,
-    ReactiveFormsModule,
-    MatNativeDateModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatIconModule,
-    MatRippleModule,
     RouterModule,
     BrowserAnimationsModule,
-    MatTabsModule
+    ReactiveFormsModule,
+    CascadeSelectModule,
+    MaterialModule
   ],
   exports: [
-    LogInComponent
+    LogInComponent,
+    ResetPasswordComponent,
+    AddUserComponent,
+    AddPatientComponent
+    
   ],
-  schemas:[CUSTOM_ELEMENTS_SCHEMA],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  providers: [{ 
+    provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } }]
+ 
 
-  
 
 })
 export class UserModule { }
