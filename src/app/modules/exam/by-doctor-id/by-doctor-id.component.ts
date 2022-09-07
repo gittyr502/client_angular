@@ -7,7 +7,6 @@ import { Examination } from 'src/app/models/examinations.model';
 import { ExamService } from 'src/app/services/exam.service';
 import { AddPatientComponent } from '../../user/add-patient/add-patient.component';
 import { AddExanComponent } from '../add-exan/add-exan.component';
-import { ExamModule } from '../exam.module';
 
 
 @Component({
@@ -26,7 +25,7 @@ export class ByDoctorIdComponent implements OnInit {
   idPatient!: number;
   examinations!: Examination[];
   dataSource!: any;
-  links = ['exams', 'add user', 'add exam', 'discussion groups'];
+  links = ['exams', 'add user', 'add exam'];
   activeLink = this.links[0];
   doctorComments: string = "";
 
@@ -50,7 +49,7 @@ export class ByDoctorIdComponent implements OnInit {
     });
 
   }
-  
+
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -69,7 +68,7 @@ export class ByDoctorIdComponent implements OnInit {
 
   addUser(): void {
     const dialogRef = this.dialog.open(AddPatientComponent
-  
+
     );
   }
 
