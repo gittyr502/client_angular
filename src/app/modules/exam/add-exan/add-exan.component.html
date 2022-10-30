@@ -1,7 +1,7 @@
-<div mat-dialog-content>
+<div mat-dialog-content dir="rtl">
     <form>
         <mat-form-field appearance="fill">
-            <mat-label>patient</mat-label>
+            <mat-label>פציינט</mat-label>
             <select matNativeControl [(ngModel)]="selectedPatient" name="patient">
                     <option
                      *ngFor="let p of patients"
@@ -14,15 +14,15 @@
     </form>
     <p>
         <mat-form-field appearance="fill">
-            <mat-label>doctor comments</mat-label>
+            <mat-label>הערות</mat-label>
             <input matInput name="doctor comments" [(ngModel)]="doctorComments">
         </mat-form-field>
     </p>
 
 </div>
 <div mat-dialog-actions>
-    <button mat-raised-button mat-dialog-close (click)="onNoClick()" cdkFocusInitial>No Thanks</button>
-    <button mat-raised-button color="primary" mat-button (click)="sendExam()" cdkFocusInitial>Ok</button>
+    <button mat-raised-button mat-dialog-close (click)="onNoClick()" cdkFocusInitial>לא תודה</button>
+    <button mat-raised-button color="primary" mat-button (click)="sendExam()" cdkFocusInitial>הוספת בדיקה</button>
 </div>
 
 

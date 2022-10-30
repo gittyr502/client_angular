@@ -1,7 +1,7 @@
-<div mat-dialog-content>
+<div mat-dialog-content dir="rtl">
     <form>
         <mat-form-field appearance="fill">
-            <mat-label>examination date</mat-label>
+            <mat-label>תאריך הבדיקה</mat-label>
             <input matInput name="doctor comments" [(ngModel)]="_exam.examinationDate" [disabled]=" true ">
         </mat-form-field>
 
@@ -13,7 +13,7 @@
 
         </div>
 
-        <button mat-raised-button color="primary" matStepperNext (click)="saveExam()">save Exam</button>
+        <button mat-raised-button color="primary" matStepperNext (click)="saveExam()">שמירה</button>
 
     </form>
     <p>

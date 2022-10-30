@@ -25,7 +25,7 @@ export class ByDoctorIdComponent implements OnInit {
   idPatient!: number;
   examinations!: Examination[];
   dataSource!: any;
-  links = ['exams', 'add user', 'add exam'];
+  links = ['בדיקות אחרונות', 'הוספת פציינט', 'הוספת בדיקה'];
   activeLink = this.links[0];
   doctorComments: string = "";
 
@@ -56,11 +56,11 @@ export class ByDoctorIdComponent implements OnInit {
   }
   navigator() {
 
-    if (this.activeLink == 'add user') {
+    if (this.activeLink == 'הוספת פציינט') {
       this.addUser();
     }
 
-   else if (this.activeLink == 'add exam') {
+   else if (this.activeLink == 'הוספת בדיקה') {
       this.addExam();
     }
     else this.route.navigate(['/' + this.activeLink]);

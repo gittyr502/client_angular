@@ -1,31 +1,31 @@
-<div mat-dialog-content [hidden]="hhh">
-    <h3>Add User</h3>
+<div mat-dialog-content [hidden]="hhh" dir="rtl">
+    <h3>הוספת משתמש</h3>
     <form class="example-form" [formGroup]="form">
         <p>
             <mat-form-field appearance="fill">
-                <mat-label>ID</mat-label>
-                <input matInput placeholder="ID" formControlName="idNumber" name="idNumber" id="idNumber" required>
+                <mat-label>מס' זהות</mat-label>
+                <input matInput placeholder="מספר זהות" formControlName="idNumber" name="idNumber" id="idNumber" required>
             </mat-form-field>
         </p>
 
         <p>
             <mat-form-field appearance="fill" matFormFieldControl="firstName">
-                <mat-label>first name</mat-label>
-                <input matInput placeholder="first name" required formControlName="firstName" id="firstName" name="firstName">
+                <mat-label>שם פרטי</mat-label>
+                <input matInput placeholder="שם פרטי" required formControlName="firstName" id="firstName" name="firstName">
             </mat-form-field>
 
         </p>
 
         <p>
             <mat-form-field appearance="fill" matFormFieldControl="lastName">
-                <mat-label>last name</mat-label>
-                <input matInput placeholder="last name" required formControlName="lastName" id="lastName" name="lastName">
+                <mat-label>שם משפחה</mat-label>
+                <input matInput placeholder="שם משפחה" required formControlName="lastName" id="lastName" name="lastName">
             </mat-form-field>
         </p>
 
         <!--   <div [formGroup]="form">-->
         <mat-form-field appearance="fill">
-            <mat-label>Phone number</mat-label>
+            <mat-label>מס' טלפון של המשתמש</mat-label>
             <example-tel-input formControlName="tel" required formControlName="tel" id="tel" name="tel"></example-tel-input>
             <mat-icon matSuffix>phone</mat-icon>
         </mat-form-field>
@@ -33,13 +33,13 @@
 
         <p>
             <mat-form-field appearance="fill" matFormFieldControl="email">
-                <mat-label>email</mat-label>
+                <mat-label>דואר אלקטרוני</mat-label>
                 <input matInput placeholder="email" required formControlName="email" id="email" name="email">
             </mat-form-field>
         </p>
         <p>
             <mat-form-field appearance="fill" matFormFieldControl="password">
-                <mat-label>password</mat-label>
+                <mat-label>סיסמא</mat-label>
                 <input matInput placeholder="password" required formControlName="password" id="password" name="password">
             </mat-form-field>
         </p>
@@ -48,7 +48,7 @@
 
             <br>
             <mat-form-field appearance="fill">
-                <mat-label>select user type</mat-label>
+                <mat-label>בחר סוג משתמש</mat-label>
                 <select matNativeControl formControlName="userType" name="userType">
             <option
             *ngFor="let opt of options"
@@ -58,7 +58,7 @@
         </select>
             </mat-form-field>
             <br>
-            <button mat-raised-button color="primary" (click)="addUser()">Save User</button>
+            <button mat-raised-button color="primary" (click)="addUser()">שמירה</button>
     </form>
 
 </div>

@@ -32,10 +32,10 @@ export class AddPatientComponent implements OnInit {
   });
   p1:Patient;
  hmos = [
-    { id: 1, hmo:"mehuchedet"},
-    {id:2, hmo:"leumit"},
-    {id:3, hmo:"macabi"},
-    {id:4, hmo:"klalit"}
+    { id: 1, hmo:"מאוחדת"},
+    {id:2, hmo:"לאומית"},
+    {id:3, hmo:"מכבי"},
+    {id:4, hmo:"כללית"}
    ];
   constructor(private _userService: UserService, private fb: FormBuilder, private router: Router, private dialog:MatDialog,private _patientService:PatientService, public dialogRef:MatDialogRef<AddPatientComponent>) { }
 
